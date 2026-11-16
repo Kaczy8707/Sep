@@ -1,0 +1,249 @@
+LEKCJA 1. 1. Zakres kwalifikacji i odpowiedzialność E/D.
+
+
+Czym jest E, a czym D?.
+Eksploatacja E obejmuje określone na świadectwie czynności przy urządzeniach: obsługę, konserwację, remont lub naprawę, montaż lub demontaż i kontrolę-pomiary. Dozór D dotyczy kierowania czynnościami osób wykonujących takie prace oraz nadzoru nad eksploatacją. Samo świadectwo nie jest automatycznie upoważnieniem do każdej pracy: liczą się także organizacja pracy, zakres obowiązków, instrukcje i upoważnienia.
+
+
+Co trzeba umieć na egzaminie?.
+Dla E: budowa i działanie, zasady eksploatacji, bezpieczne wykonywanie czynności, BHP i pierwsza pomoc, reagowanie na awarie. Dodatkowo dla D: przepisy i dokumentacja, organizacja pracy, nadzór, dobór ludzi i środków ochrony oraz postępowanie po awarii.
+
+
+Przykład.
+Monter z E może wykonywać określoną pracę po właściwym przygotowaniu i dopuszczeniu. Osoba z D organizuje i nadzoruje działania w swoim zakresie. Nie wolno utożsamiać „mam D” z prawem do dowolnego wykonywania prac pod napięciem.
+
+
+Podsumowanie lekcji. Zatrzymaj nagranie i własnymi słowami wyjaśnij zasadę działania, zagrożenia oraz wymagane zabezpieczenia.
+
+
+LEKCJA 2. 2. Podstawy elektrotechniki i obliczenia.
+
+
+Napięcie, prąd, rezystancja.
+Napięcie U [V] to różnica potencjałów; prąd I [A] to przepływ ładunku; rezystancja R [Ω] opisuje opór dla prądu. Dla odbiornika rezystancyjnego prawo Ohma: U = I × R. Moc czynna przy prądzie stałym lub odbiorniku rezystancyjnym: P = U × I.
+
+
+Prąd przemienny.
+W sieci AC napięcie i prąd zmieniają się w czasie. Wartości 230 V i 400 V to wartości skuteczne typowej sieci niskiego napięcia. Częstotliwość sieci w Polsce wynosi 50 Hz. W układzie trójfazowym 400 V jest napięciem międzyfazowym, a 230 V fazowym w typowym układzie 230/400 V.
+
+
+Moc i współczynnik mocy.
+Dla obciążenia jednofazowego: P = U × I × cos φ. Dla symetrycznego obciążenia trójfazowego: P = √3 × U międzyfazowe × I przewodowe × cos φ. Moc pozorna S jest wyrażana w VA, moc czynna P w W, a bierna Q w var. Współczynnik cos φ zależy od charakteru obciążenia.
+
+
+Przykład obliczeniowy.
+Grzejnik rezystancyjny 230 V o mocy 2300 W pobiera w przybliżeniu 10 A. Silnik trójfazowy pobierający 12 A przy 400 V i cos φ = 0,8 ma moc elektryczną czynną około 6,65 kW; moc na wale jest niższa ze względu na sprawność.
+
+
+Energia i straty.
+Energia E = P × t, np. urządzenie 2 kW pracujące 3 godziny pobiera 6 kWh. Straty cieplne w przewodzie rosną z kwadratem prądu: Pstrat = I²R. Zbyt mały przekrój, słabe zaciski i przeciążenie powodują nagrzewanie.
+
+
+Podsumowanie lekcji. Zatrzymaj nagranie i własnymi słowami wyjaśnij zasadę działania, zagrożenia oraz wymagane zabezpieczenia.
+
+
+LEKCJA 3. 3. Budowa instalacji niskiego napięcia.
+
+
+Elementy instalacji.
+Zasilanie, rozdzielnica, przewody, aparaty łączeniowe, zabezpieczenia nadprądowe, RCD, odbiorniki i połączenia ochronne. Dobór wymaga uwzględnienia obciążenia, sposobu ułożenia przewodów, temperatury, spadku napięcia, warunków zwarciowych i środowiskowych.
+
+
+L, N, PE i PEN.
+L to przewód fazowy, N neutralny, PE ochronny. PEN łączy funkcje ochronną i neutralną w dopuszczonych rozwiązaniach. Przewód PE nie powinien przenosić prądu roboczego w prawidłowych warunkach. Rozdział PEN na PE i N musi spełniać wymagania układu i norm; nie wykonuje się przypadkowych mostków N–PE w obwodach odbiorczych.
+
+
+Układy sieci.
+TN-S ma osobne PE i N, TN-C wspólny PEN, TN-C-S rozdział PEN w odpowiednim punkcie. TT wykorzystuje lokalne uziemienie części przewodzących dostępnych niezależnie od uziemienia punktu neutralnego sieci. IT ma punkt zasilania izolowany od ziemi lub połączony przez dużą impedancję. Metoda ochrony i wymagane sprawdzenia zależą od układu.
+
+
+IP i warunki środowiskowe.
+Kod IP opisuje stopień ochrony obudowy przed dostępem do części niebezpiecznych i wnikaniem ciał stałych oraz wody. Nie jest uniwersalną informacją o odporności chemicznej czy przeciwwybuchowej. W wilgoci i na zewnątrz wymagania są inne niż w suchym pomieszczeniu.
+
+
+Podsumowanie lekcji. Zatrzymaj nagranie i własnymi słowami wyjaśnij zasadę działania, zagrożenia oraz wymagane zabezpieczenia.
+
+
+LEKCJA 4. 4. Ochrona przeciwporażeniowa.
+
+
+Dotyk bezpośredni i pośredni.
+Dotyk bezpośredni dotyczy części czynnych; pośredni — części przewodzących dostępnych, które znalazły się pod napięciem wskutek uszkodzenia. Ochrona podstawowa obejmuje m.in. izolację i obudowy; ochrona przy uszkodzeniu m.in. samoczynne wyłączenie zasilania oraz właściwe połączenia ochronne.
+
+
+Wyłącznik nadprądowy.
+Chroni obwód przed skutkami przeciążenia i zwarcia zgodnie z dobraną charakterystyką. Nie jest sam w sobie zamiennikiem wszystkich środków ochrony przeciwporażeniowej. Litery B, C, D określają między innymi charakterystyki wyzwalania członu zwarciowego; dobór wymaga oceny prądów rozruchowych i zwarciowych.
+
+
+RCD.
+Wyłącznik różnicowoprądowy porównuje prądy płynące przewodami czynnymi i reaguje na prąd różnicowy. RCD o IΔn nie większym niż 30 mA bywa stosowany jako ochrona uzupełniająca. Nie chroni przed każdym porażeniem, np. gdy prąd przepływa między L i N bez powstania odpowiedniego prądu różnicowego. Typ AC, A, F lub B dobiera się do charakteru prądów różnicowych i odbiornika.
+
+
+Połączenia wyrównawcze.
+Ograniczają różnice potencjałów między częściami przewodzącymi. Nie zastępują automatycznie przewodu ochronnego ani prawidłowego wyłączenia zasilania. Ciągłość i stan połączeń są kluczowe dla skuteczności ochrony.
+
+
+Przykład.
+Jeżeli obudowa pralki znalazła się pod napięciem, prawidłowy PE i zabezpieczenie mają umożliwić szybkie wyłączenie w wymaganych warunkach. RCD może zwiększyć ochronę, ale nie naprawi przerwanego PE.
+
+
+Podsumowanie lekcji. Zatrzymaj nagranie i własnymi słowami wyjaśnij zasadę działania, zagrożenia oraz wymagane zabezpieczenia.
+
+
+LEKCJA 5. 5. Pomiary i interpretacja wyników.
+
+
+Kolejność myślenia.
+Przed pomiarem określa się cel, układ sieci, schemat, instrukcję, stan obiektu i ryzyko. Przyrząd musi być właściwy, sprawny i odpowiedni do warunków. Wynik porównuje się z właściwymi wymaganiami i dokumentuje; sam odczyt liczby nie przesądza o bezpieczeństwie.
+
+
+Ciągłość PE.
+Badanie sprawdza ciągłość przewodów ochronnych i połączeń wyrównawczych. Nie należy utożsamiać pojedynczego niskiego odczytu z pełną oceną ochrony. Należy uwzględnić długość, przekrój, połączenia i metodę pomiaru.
+
+
+Rezystancja izolacji.
+Badanie ocenia stan izolacji między określonymi torami. Napięcie probiercze i wymagany wynik zależą od rodzaju instalacji, jej napięcia, podłączonych urządzeń i normy. Elektronikę wrażliwą na napięcie pomiarowe trzeba uwzględnić w procedurze, by jej nie uszkodzić.
+
+
+Impedancja pętli zwarcia.
+Mierzy impedancję drogi prądu zwarciowego. Dla TN często sprawdza się warunek Zs × Ia ≤ U0, przy czym Ia to prąd zapewniający wymagane zadziałanie zabezpieczenia w określonym czasie. Nie wolno bezrefleksyjnie podstawiać samego prądu znamionowego wyłącznika.
+
+
+Test RCD.
+Sprawdza się m.in. działanie i czas wyłączenia przy określonych prądach testowych według właściwej procedury. Przycisk TEST jest kontrolą funkcjonalną urządzenia, a nie pełnym pomiarem skuteczności ochrony.
+
+
+Rezystancja uziemienia.
+Metoda pomiaru i kryterium oceny zależą od funkcji uziomu, układu sieci i przyjętego środka ochrony. Nie istnieje jedna uniwersalna „dobra wartość uziemienia” dla wszystkich instalacji.
+
+
+Przykład.
+Dla U0 = 230 V i Ia = 100 A obliczeniowa granica Zs wynosi 2,3 Ω. To jedynie ilustracja wzoru; w rzeczywistej ocenie potrzebne są charakterystyka zabezpieczenia, wymagany czas i margines pomiarowy.
+
+
+Podsumowanie lekcji. Zatrzymaj nagranie i własnymi słowami wyjaśnij zasadę działania, zagrożenia oraz wymagane zabezpieczenia.
+
+
+LEKCJA 6. 6. Silniki, rozruch i sterowanie.
+
+
+Silnik asynchroniczny.
+Pole wirujące stojana indukuje prądy w wirniku. Prędkość wirnika jest nieco niższa od synchronicznej — różnicę opisuje poślizg. Przy przeciążeniu rosną prąd i temperatura uzwojeń.
+
+
+Rozruch i zabezpieczenia.
+Rozruch bezpośredni może wywołać duży prąd. Stosuje się m.in. rozruch gwiazda-trójkąt, softstart lub falownik, zależnie od silnika i procesu. Potrzebne są właściwe zabezpieczenia zwarciowe, przeciążeniowe, czasem kontrola zaniku i asymetrii faz.
+
+
+Falownik.
+Reguluje częstotliwość i napięcie zasilania silnika. W obwodach z falownikami występują szczególne zagadnienia kompatybilności elektromagnetycznej, prądów upływu, doboru RCD i energii zgromadzonej w kondensatorach obwodu DC.
+
+
+Przykład.
+Silnik pompy wyzwala zabezpieczenie podczas rozruchu. Nie zwiększa się odruchowo wartości zabezpieczenia: trzeba ustalić prąd rozruchowy, obciążenie mechaniczne, parametry silnika, sposób rozruchu i stan instalacji.
+
+
+Podsumowanie lekcji. Zatrzymaj nagranie i własnymi słowami wyjaśnij zasadę działania, zagrożenia oraz wymagane zabezpieczenia.
+
+
+LEKCJA 7. 7. Elektroliza — dawny punkt G1/6.
+
+
+Zasada procesu.
+Elektroliza polega na wymuszeniu reakcji chemicznej przepływem prądu elektrycznego przez elektrolit. Elektrody to anoda i katoda; zachodzą na nich reakcje utleniania i redukcji. Instalacje mogą wykorzystywać prostowniki dużej mocy, szyny DC i układy regulacji prądu.
+
+
+Zagrożenia.
+Występują ryzyka porażenia i łuku DC, substancji żrących, wodoru i innych gazów procesowych, korozji oraz niezamierzonego uruchomienia. Wyłączenie zasilania nie usuwa natychmiast zagrożeń chemicznych i gazowych. Niezbędne są procedury technologiczne, wentylacja, detekcja i właściwe środki ochrony.
+
+
+Co powinien umieć dozór?.
+Rozumieć granice odpowiedzialności elektrycznej i technologicznej, zapewnić koordynację prac, izolację źródeł energii, ocenę atmosfery i zgodność z instrukcjami instalacji. Nie dopuszczać do prac wyłącznie na podstawie ogólnego świadectwa G1.
+
+
+Podsumowanie lekcji. Zatrzymaj nagranie i własnymi słowami wyjaśnij zasadę działania, zagrożenia oraz wymagane zabezpieczenia.
+
+
+LEKCJA 8. 8. Elektryczna sieć trakcyjna — dawny punkt G1/8.
+
+
+Zasada działania.
+Energia jest doprowadzana do pojazdu przez sieć trakcyjną, a obwód powrotny może obejmować szyny i specjalne połączenia. Występują duże prądy, rozległe obwody i możliwość zasilania z różnych kierunków.
+
+
+Szczególne ryzyka.
+Napięcia trakcyjne i łuk elektryczny są śmiertelnie niebezpieczne. W pobliżu sieci nie wolno opierać się na założeniu, że „pociąg nie jedzie, więc nie ma napięcia”. Obowiązują specjalne procedury wyłączeń, uziemień, zabezpieczenia miejsca pracy i koordynacji z prowadzącym ruch.
+
+
+Przykład dla D.
+Przed dopuszczeniem ekipy do pracy przy sieci trakcyjnej kierujący sprawdza potwierdzenie wyłączenia, właściwe zabezpieczenia, granice strefy pracy i sposób komunikacji z uprawnionymi służbami.
+
+
+Podsumowanie lekcji. Zatrzymaj nagranie i własnymi słowami wyjaśnij zasadę działania, zagrożenia oraz wymagane zabezpieczenia.
+
+
+LEKCJA 9. 9. Aparatura kontrolno-pomiarowa i automatyka — dawny punkt G1/10.
+
+
+Czujnik, sterownik, element wykonawczy.
+Czujnik mierzy wielkość fizyczną, sterownik porównuje ją z zadaniem i logiką bezpieczeństwa, element wykonawczy realizuje działanie. Przykład: czujnik temperatury, regulator, stycznik grzałki.
+
+
+Sterowanie i zabezpieczenie.
+Sterowanie procesem nie jest równoznaczne z funkcją bezpieczeństwa. Awaria czujnika lub sterownika nie może prowadzić do niekontrolowanego zagrożenia, jeśli projekt wymaga niezależnego zabezpieczenia. Weryfikuje się również zachowanie po zaniku i powrocie zasilania.
+
+
+Obwody pomiarowe.
+Ważne są zakres pomiarowy, dokładność, kalibracja, izolacja galwaniczna, ekranowanie, kompatybilność elektromagnetyczna i interpretacja alarmów. Zmiana nastaw wymaga upoważnienia, dokumentacji i kontroli skutków.
+
+
+Przykład.
+Czujnik temperatury pokazuje zaniżoną wartość. Samo podwyższenie nastawy regulatora może doprowadzić do przegrzania. Należy ocenić tor pomiarowy i niezależne ograniczniki.
+
+
+Podsumowanie lekcji. Zatrzymaj nagranie i własnymi słowami wyjaśnij zasadę działania, zagrożenia oraz wymagane zabezpieczenia.
+
+
+LEKCJA 10. 10. Organizacja pracy, BHP i pierwsza pomoc.
+
+
+Przygotowanie pracy.
+Należy rozpoznać wszystkie źródła energii, odłączyć zgodnie z procedurą, zabezpieczyć przed przypadkowym załączeniem, sprawdzić brak napięcia właściwym przyrządem i zastosować wymagane uziemienia, osłony oraz oznakowanie. Dokładny zestaw środków zależy od obiektu i rodzaju pracy.
+
+
+Praca pod napięciem.
+Jest odrębnym, szczególnie ryzykownym trybem wymagającym odpowiednich metod, narzędzi, procedur, organizacji i przygotowania. Nie wolno jej podejmować tylko dlatego, że posiadamy świadectwo E lub D.
+
+
+Porażenie.
+Najpierw zapewnij bezpieczeństwo ratownika: nie dotykaj poszkodowanego pozostającego pod napięciem. Odłącz źródło, jeśli jest to bezpieczne, wezwij 112, oceń oddech i rozpocznij RKO oraz użyj AED zgodnie z poleceniami, jeśli poszkodowany nie oddycha prawidłowo.
+
+
+Pożar i łuk.
+Priorytetem jest alarmowanie, ewakuacja i ograniczenie zagrożenia. Dobór środka gaśniczego musi odpowiadać urządzeniu, napięciu i instrukcji. Nie należy używać wody na urządzenia pod napięciem bez odpowiednio przewidzianej i bezpiecznej procedury.
+
+
+Przykład dla D.
+Przy zleceniu wymiany aparatu w rozdzielnicy D weryfikuje zakres wyłączenia, możliwe zasilanie zwrotne z UPS/PV/agregatu, kwalifikacje zespołu, instrukcje, środki ochrony, sposób dopuszczenia i dokumentację zakończenia.
+
+
+Podsumowanie lekcji. Zatrzymaj nagranie i własnymi słowami wyjaśnij zasadę działania, zagrożenia oraz wymagane zabezpieczenia.
+
+
+LEKCJA 11. 11. Dokumentacja, przeglądy i odpowiedzialność dozoru.
+
+
+Co zawiera dokumentacja?.
+Schematy aktualne po zmianach, instrukcje eksploatacji, oceny ryzyka, protokoły pomiarów, wykazy urządzeń, nastawy zabezpieczeń, rejestry usterek i przeglądów, upoważnienia i polecenia tam, gdzie są wymagane.
+
+
+Odbiór po remoncie.
+Należy potwierdzić zgodność z dokumentacją, kompletność osłon, prawidłowe połączenia ochronne, działanie zabezpieczeń, wyniki wymaganych badań oraz bezpieczne przekazanie do użytkowania.
+
+
+Błąd dozoru.
+Dozór nie powinien podpisywać protokołu bez sprawdzenia zakresu prac i wiarygodności danych. Brak reakcji na powtarzające się usterki i brak aktualizacji dokumentacji mogą prowadzić do poważnych zdarzeń.
+
+
+Podsumowanie lekcji. Zatrzymaj nagranie i własnymi słowami wyjaśnij zasadę działania, zagrożenia oraz wymagane zabezpieczenia.
+

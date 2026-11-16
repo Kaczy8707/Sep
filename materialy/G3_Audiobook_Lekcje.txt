@@ -1,0 +1,133 @@
+LEKCJA 1. 1. Gaz: podstawowe pojęcia i zagrożenia.
+
+
+Rodzaje gazów. Gaz ziemny jest zwykle lżejszy od powietrza i składa się głównie z metanu. LPG, np. propan-butan, jest cięższy od powietrza i może gromadzić się przy podłodze. Rozmieszczenie detektorów zależy od rodzaju gazu i warunków pomieszczenia.
+
+
+Spalanie. Do spalania potrzebne są paliwo, utleniacz i źródło zapłonu. Niepełne spalanie może prowadzić do powstania tlenku węgla, który jest bezbarwny, bezwonny i silnie toksyczny. Nawet sprawny detektor gazu palnego nie zastępuje czujnika CO.
+
+
+Strefy zagrożenia wybuchem. Strefy wyznacza się na podstawie analizy możliwości wystąpienia atmosfery wybuchowej. Dobór urządzeń Ex i środków ochrony wynika z oceny ryzyka i dokumentacji; samo posiadanie G3 nie upoważnia do projektowania ani zmiany klasyfikacji stref.
+
+
+Podsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.
+
+
+LEKCJA 2. 2. Budowa instalacji gazowej.
+
+
+Elementy. Instalacja obejmuje przewody, armaturę odcinającą, reduktory lub regulatory ciśnienia, filtry, gazomierze, urządzenia odbiorcze i wymagane zabezpieczenia. Schemat pozwala zidentyfikować granice odcięcia i miejsca pomiarów.
+
+
+Ciśnienie i redukcja. Reduktor utrzymuje określone ciśnienie za urządzeniem w zakresie jego parametrów. Nieprawidłowa regulacja może spowodować niestabilny płomień lub zadziałanie zabezpieczeń. Wymagane ciśnienia prób i eksploatacji zależą od typu instalacji i właściwych przepisów.
+
+
+Materiały i połączenia. Materiał rur, technika łączenia i sposób prowadzenia instalacji muszą być zgodne z projektem, normami i warunkami. Nie wolno dowolnie zastępować armatury przeznaczonej do gazu elementami wodnymi.
+
+
+Podsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.
+
+
+LEKCJA 3. 3. Urządzenia gazowe i palniki.
+
+
+Palniki. Palnik miesza paliwo z powietrzem i utrzymuje kontrolowany proces spalania. Automatyka kontroluje sekwencję przedmuchu, zapłonu, potwierdzenia płomienia i bezpiecznego odcięcia paliwa przy awarii.
+
+
+Kontrola płomienia. Czujnik jonizacyjny lub optyczny może potwierdzać obecność płomienia. Brak potwierdzenia w wymaganym czasie powoduje blokadę i odcięcie gazu. Wielokrotne resetowanie bez diagnostyki jest niebezpieczne.
+
+
+Spaliny i wentylacja. Prawidłowe doprowadzenie powietrza i odprowadzenie spalin są niezbędne. Zaburzenie ciągu, niedrożny przewód spalinowy lub niewłaściwa wentylacja mogą prowadzić do zatrucia CO.
+
+
+Podsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.
+
+
+LEKCJA 4. 4. Próby szczelności i kontrola.
+
+
+Zasada. Szczelność sprawdza się metodą i przyrządem odpowiednimi dla instalacji, zgodnie z właściwą procedurą i przepisami. Wyniki dokumentuje się z podaniem warunków, medium, czasu, ciśnienia i użytego sprzętu, jeśli wymaga tego procedura.
+
+
+Wykrywanie nieszczelności. Można używać właściwych detektorów lub preparatów pianotwórczych dopuszczonych do danego zastosowania. Nigdy nie szuka się wycieku płomieniem. Wykrycie nieszczelności oznacza konieczność zabezpieczenia instalacji i usunięcia usterki.
+
+
+Przykład. Po wymianie zaworu nie wystarcza stwierdzenie, że nie czuć zapachu gazu. Wykonuje się przewidzianą próbę, dokumentuje wynik i dopiero wtedy przekazuje instalację do eksploatacji.
+
+
+Podsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.
+
+
+LEKCJA 5. 5. Stacje redukcyjne i pomiarowe.
+
+
+Funkcje. Stacja redukuje i stabilizuje ciśnienie oraz może mierzyć przepływ. Zabezpieczenia mogą obejmować szybkozamykające zawory bezpieczeństwa i urządzenia upustowe dobrane do projektu.
+
+
+Obsługa. Monitoruje się ciśnienie przed i za reduktorem, stan filtrów, szczelność i działanie zabezpieczeń. Przy przekroczeniu parametrów postępuje się według instrukcji; nie obchodzi się zaworów bezpieczeństwa.
+
+
+Podsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.
+
+
+LEKCJA 6. 6. Przemysłowe odbiorniki gazu.
+
+
+Piece, suszarnie, kotły. W instalacjach przemysłowych istotne są blokady powietrza i paliwa, przedmuch komory, kontrola płomienia, temperatura i wentylacja. Zagrożenia obejmują zapłon opóźniony, wybuch mieszaniny, przegrzanie i CO.
+
+
+Przykład. Po zaniku płomienia automatyka odcina gaz. Operator nie może ominąć blokady i podać paliwa ręcznie. Dalsze uruchomienie odbywa się zgodnie z procedurą po usunięciu przyczyny.
+
+
+Podsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.
+
+
+LEKCJA 7. 7. Detektory i automatyka gazowa.
+
+
+Detektory. Detektor musi być dobrany do konkretnego gazu, zakresu stężeń i miejsca montażu. Wymaga kontroli i kalibracji zgodnie z dokumentacją. Alarm detektora powinien uruchamiać przewidziane działania, np. sygnalizację, wentylację lub odcięcie gazu.
+
+
+Współpraca instalacji. Nie każda instalacja może być wentylowana w ten sam sposób; decyzje o wentylacji i urządzeniach elektrycznych uwzględniają zagrożenie wybuchem. Układy automatyki bezpieczeństwa należy testować według procedur.
+
+
+Podsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.
+
+
+LEKCJA 8. 8. Awaria i ulatnianie się gazu.
+
+
+Procedura. Nie używaj otwartego ognia ani przełączników elektrycznych w zagrożonej strefie. Ostrzeż osoby, ewakuuj, jeśli bezpieczne zamknij dopływ gazu, zapewnij przewietrzenie bez tworzenia dodatkowego zagrożenia. Z bezpiecznego miejsca wezwij pogotowie gazowe 992 lub 112.
+
+
+Podejrzenie CO. Przerwij narażenie i wyprowadź osoby na świeże powietrze bez narażania ratowników. Wezwij 112. Nie wchodź do niebezpiecznej atmosfery bez odpowiednich uprawnień i wyposażenia ratowniczego.
+
+
+Zagrożenie pożarowe. Nie próbuj samodzielnie gasić płonącego wypływu gazu bez odcięcia paliwa, jeśli mogłoby to doprowadzić do nagromadzenia mieszaniny wybuchowej. Postępuj zgodnie z planem awaryjnym i poleceniami służb.
+
+
+Podsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.
+
+
+LEKCJA 9. 9. Pomiary i dokumentacja.
+
+
+Przyrządy. Wykorzystuje się manometry, rejestratory, analizatory spalin, detektory gazu i mierniki przepływu. Przyrząd musi mieć odpowiedni zakres, dokładność, stan techniczny i wymagane sprawdzenia metrologiczne.
+
+
+Protokół. Powinien jednoznacznie identyfikować instalację, zakres badania, zastosowaną metodę, warunki i wynik, osobę wykonującą oraz wnioski. Nie wolno dopisywać wyników, których faktycznie nie zmierzono.
+
+
+Podsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.
+
+
+LEKCJA 10. 10. Dozór G3.
+
+
+Organizacja prac. Dozór zapewnia instrukcje, dobór personelu, właściwe odcięcia, ocenę atmosfery, zabezpieczenie miejsca, kontrolę prac pożarowo niebezpiecznych oraz odbiór. W strefach Ex obowiązują dodatkowe wymagania.
+
+
+Sytuacja egzaminacyjna. W hali uruchomił się alarm gazowy. D przerywa pracę, wdraża plan awaryjny, organizuje ewakuację i zabezpieczenie miejsca, powiadamia służby i nie dopuszcza do ponownego uruchomienia bez usunięcia przyczyny oraz wymaganych kontroli.
+
+
+Podsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.

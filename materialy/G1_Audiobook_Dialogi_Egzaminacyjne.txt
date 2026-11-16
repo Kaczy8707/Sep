@@ -1,0 +1,129 @@
+DIALOGI EGZAMINACYJNE G1 E i D. Dwa głosy: egzaminator i lektor. Pauzę 8 sekund dodaj w narzędziu TTS lub montażu.
+
+EGZAMINATOR: Pytanie 1. Czym różni się E od D?
+[PAUZA 8 SEKUND]
+LEKTOR: E dotyczy wykonywania wskazanych czynności eksploatacyjnych, a D kierowania tymi czynnościami i nadzoru. Zakres wynika ze świadectwa i organizacji pracy.
+
+EGZAMINATOR: Pytanie 2. Jakie napięcia występują w typowej sieci trójfazowej?
+[PAUZA 8 SEKUND]
+LEKTOR: 230 V fazowo i 400 V międzyfazowo, 50 Hz.
+
+EGZAMINATOR: Pytanie 3. Podaj prawo Ohma.
+[PAUZA 8 SEKUND]
+LEKTOR: U = I × R, dla obwodu o charakterze rezystancyjnym.
+
+EGZAMINATOR: Pytanie 4. Jak obliczysz moc trójfazową?
+[PAUZA 8 SEKUND]
+LEKTOR: Dla obciążenia symetrycznego P = √3 × U × I × cos φ.
+
+EGZAMINATOR: Pytanie 5. Do czego służy PE?
+[PAUZA 8 SEKUND]
+LEKTOR: Do ochronnego połączenia części przewodzących dostępnych; nie jest przewodem roboczym.
+
+EGZAMINATOR: Pytanie 6. Czym różni się TN-S od TN-C?
+[PAUZA 8 SEKUND]
+LEKTOR: W TN-S przewody PE i N są rozdzielone, w TN-C występuje wspólny PEN.
+
+EGZAMINATOR: Pytanie 7. Jak działa RCD?
+[PAUZA 8 SEKUND]
+LEKTOR: Porównuje sumę prądów w przewodach czynnych i wyłącza przy określonym prądzie różnicowym.
+
+EGZAMINATOR: Pytanie 8. Czy RCD zastępuje PE?
+[PAUZA 8 SEKUND]
+LEKTOR: Nie, jest jednym ze środków ochrony i nie zastępuje prawidłowego przewodu ochronnego.
+
+EGZAMINATOR: Pytanie 9. Po co mierzy się pętlę zwarcia?
+[PAUZA 8 SEKUND]
+LEKTOR: By ocenić możliwość samoczynnego wyłączenia zasilania w wymaganym czasie.
+
+EGZAMINATOR: Pytanie 10. Co oznacza Ia we wzorze Zs × Ia ≤ U0?
+[PAUZA 8 SEKUND]
+LEKTOR: Prąd zapewniający zadziałanie właściwego zabezpieczenia w wymaganym czasie.
+
+EGZAMINATOR: Pytanie 11. Co bada pomiar rezystancji izolacji?
+[PAUZA 8 SEKUND]
+LEKTOR: Stan izolacji między określonymi torami, według procedury dobranej do instalacji.
+
+EGZAMINATOR: Pytanie 12. Czy przycisk TEST RCD zastępuje pomiar?
+[PAUZA 8 SEKUND]
+LEKTOR: Nie, sprawdza funkcję aparatu, ale nie zastępuje pełnych badań.
+
+EGZAMINATOR: Pytanie 13. Dlaczego silnik pobiera duży prąd przy rozruchu?
+[PAUZA 8 SEKUND]
+LEKTOR: Ponieważ warunki elektromagnetyczne przy postoju powodują wysoki prąd rozruchowy.
+
+EGZAMINATOR: Pytanie 14. Do czego służy falownik?
+[PAUZA 8 SEKUND]
+LEKTOR: Do regulacji prędkości silnika przez zmianę częstotliwości i napięcia zasilania.
+
+EGZAMINATOR: Pytanie 15. Na czym polega elektroliza?
+[PAUZA 8 SEKUND]
+LEKTOR: Na wymuszaniu reakcji chemicznych prądem przepływającym przez elektrolit.
+
+EGZAMINATOR: Pytanie 16. Jakie zagrożenia występują przy elektrolizie?
+[PAUZA 8 SEKUND]
+LEKTOR: Elektryczne DC, chemiczne, gazowe, łukowe i związane z automatyką.
+
+EGZAMINATOR: Pytanie 17. Dlaczego sieć trakcyjna wymaga specjalnych procedur?
+[PAUZA 8 SEKUND]
+LEKTOR: Może być zasilana z wielu stron, ma duże energie zwarciowe i szczególne wymagania uziemiania i dopuszczenia.
+
+EGZAMINATOR: Pytanie 18. Czy sterownik PLC zastępuje niezależne zabezpieczenie?
+[PAUZA 8 SEKUND]
+LEKTOR: Nie zawsze; funkcje bezpieczeństwa muszą spełniać wymagania projektu i oceny ryzyka.
+
+EGZAMINATOR: Pytanie 19. Co sprawdzasz przed pracą w rozdzielnicy?
+[PAUZA 8 SEKUND]
+LEKTOR: Źródła zasilania, wyłączenie, zabezpieczenie przed załączeniem, brak napięcia i środki ochronne.
+
+EGZAMINATOR: Pytanie 20. Jak postępujesz przy porażeniu?
+[PAUZA 8 SEKUND]
+LEKTOR: Zabezpiecz siebie, odłącz napięcie bezpiecznie, wezwij 112, oceń oddech, wykonuj RKO i użyj AED gdy wskazane.
+
+EGZAMINATOR: Pytanie 21. Jakie dokumenty sprawdza D?
+[PAUZA 8 SEKUND]
+LEKTOR: Instrukcje, schematy, upoważnienia, protokoły, ocenę ryzyka i dokumentację urządzeń.
+
+EGZAMINATOR: Pytanie 22. Co robi D po remoncie?
+[PAUZA 8 SEKUND]
+LEKTOR: Weryfikuje wyniki wymaganych kontroli, stan zabezpieczeń i bezpieczne przekazanie do pracy.
+
+EGZAMINATOR: Sytuacja dozoru 1. Zespół ma wymienić wyłącznik w rozdzielnicy. Co robisz?
+[PAUZA 10 SEKUND]
+LEKTOR: Sprawdź schemat, zasilania rezerwowe, organizację wyłączenia, upoważnienia, procedurę dopuszczenia, pomiary i odbiór.
+
+EGZAMINATOR: Sytuacja dozoru 2. Po przeglądzie nie ma aktualnego schematu. Co robisz?
+[PAUZA 10 SEKUND]
+LEKTOR: Wstrzymaj działania wymagające pewnego rozpoznania instalacji, zleć identyfikację i aktualizację dokumentacji.
+
+EGZAMINATOR: Sytuacja dozoru 3. Pracownik proponuje pomiar bez wymaganej procedury. Co robisz?
+[PAUZA 10 SEKUND]
+LEKTOR: Nie dopuść do działania, określ metodę, warunki i zabezpieczenia, sprawdź kompetencje i przyrząd.
+
+EGZAMINATOR: Sytuacja dozoru 4. Wynik pomiaru pętli zwarcia jest graniczny. Co robisz?
+[PAUZA 10 SEKUND]
+LEKTOR: Sprawdź warunki, niepewność, charakterystykę aparatu i wymagany czas; nie zatwierdzaj automatycznie.
+
+EGZAMINATOR: Sytuacja dozoru 5. Falownik generuje wyzwalanie RCD. Co robisz?
+[PAUZA 10 SEKUND]
+LEKTOR: Zleć diagnostykę prądów upływu, zgodności typu RCD, instalacji i dokumentacji producenta.
+
+EGZAMINATOR: Sytuacja dozoru 6. Silnik pompy się przegrzewa. Co robisz?
+[PAUZA 10 SEKUND]
+LEKTOR: Sprawdź obciążenie, wentylację, prądy fazowe, zasilanie, nastawy i stan mechaniczny.
+
+EGZAMINATOR: Sytuacja dozoru 7. W elektrolizerze wykryto wodór. Co robisz?
+[PAUZA 10 SEKUND]
+LEKTOR: Uruchom właściwą procedurę awaryjną, odizoluj zagrożenie i koordynuj służby procesu oraz elektryków.
+
+EGZAMINATOR: Sytuacja dozoru 8. Przy sieci trakcyjnej brak potwierdzenia wyłączenia. Co robisz?
+[PAUZA 10 SEKUND]
+LEKTOR: Nie dopuszczaj do pracy; wymagaj formalnego potwierdzenia i środków zabezpieczających.
+
+EGZAMINATOR: Sytuacja dozoru 9. Po naprawie brak protokołu badań. Co robisz?
+[PAUZA 10 SEKUND]
+LEKTOR: Nie potwierdzaj odbioru bez wymaganej kontroli i dokumentacji.
+
+EGZAMINATOR: Sytuacja dozoru 10. Pracownik został porażony. Co robisz?
+[PAUZA 10 SEKUND]
+LEKTOR: Zabezpiecz miejsce, odłącz źródło bez narażania ratowników, wezwij pomoc, rozpocznij pierwszą pomoc i procedurę powypadkową.

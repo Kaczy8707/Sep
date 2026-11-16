@@ -1,0 +1,108 @@
+EGZAMINATOR: Wyjaśnij: temperatura, ciepło i moc?
+[PAUZA 8 SEKUND]
+KANDYDAT: Temperatura określa stan cieplny; ciepło jest energią przekazywaną wskutek różnicy temperatur. Moc cieplna to energia na jednostkę czasu. Dla wody można oszacować moc: Q = m_dot × c_p × ΔT, gdzie m_dot to strumień masy w kg/s, c_p około 4,18 kJ/(kg K), a ΔT różnica temperatur w kelwinach. Przykład: przepływ 0,5 kg/s i schłodzenie o 10 K odpowiadają około 20,9 kW.
+
+
+EGZAMINATOR: Wyjaśnij: ciśnienie i zmiany stanu?
+[PAUZA 8 SEKUND]
+KANDYDAT: Ciśnienie manometryczne odnosi się do ciśnienia otoczenia, absolutne do próżni. Przy wzroście temperatury wody w zamkniętej instalacji rośnie jej objętość, dlatego potrzebne są rozwiązania kompensujące rozszerzalność. Para może zawierać znaczną energię, a rozszczelnienie instalacji parowej grozi ciężkim poparzeniem.
+
+
+EGZAMINATOR: Wyjaśnij: zasada działania kotła?
+[PAUZA 8 SEKUND]
+KANDYDAT: Kocioł przekazuje energię z paliwa lub innego źródła do czynnika grzewczego. Podstawowe elementy to komora spalania lub źródło grzania, wymiennik, układ zasilania, automatyka, czujniki oraz zabezpieczenia. Kotły kondensacyjne odzyskują dodatkową energię z kondensacji pary wodnej ze spalin przy odpowiednio niskiej temperaturze powrotu.
+
+
+EGZAMINATOR: Wyjaśnij: zabezpieczenia?
+[PAUZA 8 SEKUND]
+KANDYDAT: Stosuje się m.in. zabezpieczenia przed nadmiernym ciśnieniem i temperaturą, zanikiem przepływu lub wody, nieprawidłowym spalaniem oraz awarią odprowadzenia spalin. Dobór zależy od konstrukcji, mocy i instrukcji. Zaworu bezpieczeństwa nie wolno odcinać od chronionej przestrzeni w sposób uniemożliwiający jego działanie.
+
+
+EGZAMINATOR: Wyjaśnij: elementy układu?
+[PAUZA 8 SEKUND]
+KANDYDAT: Źródło ciepła, sieć zasilająca i powrotna, wymiennik, pompy, armatura odcinająca i regulacyjna, naczynia wzbiorcze, odpowietrzenie, filtry, przyrządy pomiarowe. Wymiennik oddziela hydraulicznie obiegi i przekazuje energię przez przegrodę.
+
+
+EGZAMINATOR: Wyjaśnij: naczynie wzbiorcze?
+[PAUZA 8 SEKUND]
+KANDYDAT: W instalacji zamkniętej naczynie przeponowe kompensuje zmiany objętości wody. Niewłaściwe ciśnienie wstępne, uszkodzona membrana lub złe przyłączenie mogą powodować duże wahania ciśnienia. W instalacji otwartej stosuje się inne rozwiązania, zgodne z projektem.
+
+
+EGZAMINATOR: Wyjaśnij: dlaczego para jest groźna?
+[PAUZA 8 SEKUND]
+KANDYDAT: Para i kondensat mogą mieć wysoką temperaturę i energię. Rozprężenie cieczy przegrzanej może wywołać gwałtowne odparowanie. Wyciek pary bywa słabo widoczny; nie wolno lokalizować go ręką.
+
+
+EGZAMINATOR: Wyjaśnij: odwadniacze i armatura?
+[PAUZA 8 SEKUND]
+KANDYDAT: Odwadniacz usuwa kondensat, ograniczając utratę pary. Uszkodzony odwadniacz może powodować straty energii albo gromadzenie kondensatu. Przed otwarciem urządzenia należy potwierdzić odizolowanie, brak ciśnienia i bezpieczną temperaturę.
+
+
+EGZAMINATOR: Wyjaśnij: pompy?
+[PAUZA 8 SEKUND]
+KANDYDAT: Pompa wirowa nadaje cieczy energię. Podstawowe parametry to wydajność, wysokość podnoszenia, sprawność i wymagane warunki na ssaniu. Praca na sucho, zapowietrzenie, kawitacja lub zatkany filtr mogą prowadzić do awarii.
+
+
+EGZAMINATOR: Wyjaśnij: wentylatory i wentylacja?
+[PAUZA 8 SEKUND]
+KANDYDAT: Wentylacja zapewnia wymianę powietrza lub transport gazów. Istotne są wydajność, spręż, opory kanałów, stan filtrów i bezpieczeństwo pożarowe. Zmniejszenie przepływu może spowodować przegrzanie urządzeń albo pogorszenie jakości powietrza.
+
+
+EGZAMINATOR: Wyjaśnij: obieg chłodniczy?
+[PAUZA 8 SEKUND]
+KANDYDAT: W sprężarkowym obiegu chłodniczym parownik pobiera ciepło, sprężarka zwiększa ciśnienie czynnika, skraplacz oddaje ciepło, a element rozprężny obniża ciśnienie. Sprawność zależy m.in. od temperatur parowania i skraplania.
+
+
+EGZAMINATOR: Wyjaśnij: zagrożenia?
+[PAUZA 8 SEKUND]
+KANDYDAT: Niektóre czynniki są palne, toksyczne lub mogą wypierać tlen. Dochodzi ryzyko odmrożeń, nadciśnienia i energii elektrycznej. Dobór detekcji i wentylacji zależy od czynnika oraz pomieszczenia.
+
+
+EGZAMINATOR: Wyjaśnij: piece przemysłowe?
+[PAUZA 8 SEKUND]
+KANDYDAT: Piece mogą ogrzewać materiał promieniowaniem, konwekcją lub przewodzeniem. Ważne są strefy temperatury, kontrola atmosfery, odprowadzenie spalin i osłony przed poparzeniem. Awaria wentylacji lub układu spalania może prowadzić do niebezpiecznych warunków.
+
+
+EGZAMINATOR: Wyjaśnij: suszarnie i wymienniki?
+[PAUZA 8 SEKUND]
+KANDYDAT: Suszarnie wymagają kontroli temperatury, przepływu powietrza i niekiedy stężenia par rozpuszczalników lub pyłów. Wymienniki ocenia się pod kątem zabrudzenia, nieszczelności i spadku sprawności. Prace remontowe poprzedza izolacja energii cieplnej i mechanicznej.
+
+
+EGZAMINATOR: Wyjaśnij: pomiary?
+[PAUZA 8 SEKUND]
+KANDYDAT: Mierzy się temperaturę, ciśnienie, różnicę ciśnień, przepływ, poziom, energię cieplną i parametry spalania. Czujnik musi być dobrany do zakresu i warunków. Błędne umiejscowienie czujnika może dawać prawidłowy elektrycznie, lecz bezużyteczny technologicznie sygnał.
+
+
+EGZAMINATOR: Wyjaśnij: regulacja i blokady?
+[PAUZA 8 SEKUND]
+KANDYDAT: Regulator PID steruje pracą urządzenia na podstawie odchyłki. Zabezpieczenia krytyczne powinny być projektowane i sprawdzane niezależnie od zwykłej regulacji, zgodnie z oceną ryzyka. Nie wolno obchodzić blokad bez formalnie zatwierdzonej procedury.
+
+
+EGZAMINATOR: Wyjaśnij: bezpieczne przygotowanie pracy?
+[PAUZA 8 SEKUND]
+KANDYDAT: Rozpoznaj wszystkie źródła energii: elektryczną, cieplną, ciśnieniową, mechaniczną i chemiczną. Odizoluj je, zabezpiecz przed przypadkowym uruchomieniem, potwierdź brak ciśnienia i temperaturę bezpieczną dla prac, zastosuj wymagane środki ochrony.
+
+
+EGZAMINATOR: Wyjaśnij: oparzenie?
+[PAUZA 8 SEKUND]
+KANDYDAT: Przerwij narażenie i chłodź oparzone miejsce chłodną bieżącą wodą przez około 20 minut, jeżeli jest to możliwe i bezpieczne. Nie odrywaj przyklejonej odzieży. Przy ciężkim oparzeniu wezwij 112.
+
+
+EGZAMINATOR: Wyjaśnij: obowiązki d?
+[PAUZA 8 SEKUND]
+KANDYDAT: Dozór planuje i nadzoruje eksploatację, przeglądy i remonty, weryfikuje kwalifikacje i instrukcje, dokumentuje wyniki oraz reaguje na zagrożenia. Musi znać granice odpowiedzialności wobec UDT, służb ppoż. i właściciela urządzenia.
+
+
+EGZAMINATOR: Wyjaśnij: sytuacja egzaminacyjna?
+[PAUZA 8 SEKUND]
+KANDYDAT: Po remoncie kotła kierownik stwierdza brak próby zabezpieczenia przed przegrzaniem. Nie dopuszcza urządzenia do pracy do czasu wykonania wymaganych kontroli i udokumentowania wyników.
+
+
+EGZAMINATOR: Wymagania E i D?
+[PAUZA 8 SEKUND]
+KANDYDAT: Eksploatacja E dotyczy określonych czynności obsługi, konserwacji, remontu, montażu i kontroli-pomiarów. Dozór D obejmuje kierowanie czynnościami i nadzór. Zakres jest zapisany na świadectwie; sam dokument nie zastępuje upoważnień, instrukcji ani innych wymaganych kwalifikacji.
+
+
+EGZAMINATOR: Bezpieczeństwo i pierwsza pomoc?
+[PAUZA 8 SEKUND]
+KANDYDAT: Zabezpiecz siebie, przerwij narażenie, wezwij pomoc 112. Przy braku prawidłowego oddechu rozpocznij RKO i zastosuj AED według instrukcji. Nie podejmuj działań w niebezpiecznej atmosferze ani przy energii, której nie odizolowano.

@@ -1,0 +1,222 @@
+[
+  {
+    "id": "g3-question-001",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: rodzaje gazów?",
+    "question": "Wyjaśnij: rodzaje gazów?",
+    "answer": "Gaz ziemny jest zwykle lżejszy od powietrza i składa się głównie z metanu. LPG, np. propan-butan, jest cięższy od powietrza i może gromadzić się przy podłodze. Rozmieszczenie detektorów zależy od rodzaju gazu i warunków pomieszczenia.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-002",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: spalanie?",
+    "question": "Wyjaśnij: spalanie?",
+    "answer": "Do spalania potrzebne są paliwo, utleniacz i źródło zapłonu. Niepełne spalanie może prowadzić do powstania tlenku węgla, który jest bezbarwny, bezwonny i silnie toksyczny. Nawet sprawny detektor gazu palnego nie zastępuje czujnika CO.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-003",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: elementy?",
+    "question": "Wyjaśnij: elementy?",
+    "answer": "Instalacja obejmuje przewody, armaturę odcinającą, reduktory lub regulatory ciśnienia, filtry, gazomierze, urządzenia odbiorcze i wymagane zabezpieczenia. Schemat pozwala zidentyfikować granice odcięcia i miejsca pomiarów.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-004",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: ciśnienie i redukcja?",
+    "question": "Wyjaśnij: ciśnienie i redukcja?",
+    "answer": "Reduktor utrzymuje określone ciśnienie za urządzeniem w zakresie jego parametrów. Nieprawidłowa regulacja może spowodować niestabilny płomień lub zadziałanie zabezpieczeń. Wymagane ciśnienia prób i eksploatacji zależą od typu instalacji i właściwych przepisów.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-005",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: palniki?",
+    "question": "Wyjaśnij: palniki?",
+    "answer": "Palnik miesza paliwo z powietrzem i utrzymuje kontrolowany proces spalania. Automatyka kontroluje sekwencję przedmuchu, zapłonu, potwierdzenia płomienia i bezpiecznego odcięcia paliwa przy awarii.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-006",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: kontrola płomienia?",
+    "question": "Wyjaśnij: kontrola płomienia?",
+    "answer": "Czujnik jonizacyjny lub optyczny może potwierdzać obecność płomienia. Brak potwierdzenia w wymaganym czasie powoduje blokadę i odcięcie gazu. Wielokrotne resetowanie bez diagnostyki jest niebezpieczne.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-007",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: zasada?",
+    "question": "Wyjaśnij: zasada?",
+    "answer": "Szczelność sprawdza się metodą i przyrządem odpowiednimi dla instalacji, zgodnie z właściwą procedurą i przepisami. Wyniki dokumentuje się z podaniem warunków, medium, czasu, ciśnienia i użytego sprzętu, jeśli wymaga tego procedura.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-008",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: wykrywanie nieszczelności?",
+    "question": "Wyjaśnij: wykrywanie nieszczelności?",
+    "answer": "Można używać właściwych detektorów lub preparatów pianotwórczych dopuszczonych do danego zastosowania. Nigdy nie szuka się wycieku płomieniem. Wykrycie nieszczelności oznacza konieczność zabezpieczenia instalacji i usunięcia usterki.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-009",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: funkcje?",
+    "question": "Wyjaśnij: funkcje?",
+    "answer": "Stacja redukuje i stabilizuje ciśnienie oraz może mierzyć przepływ. Zabezpieczenia mogą obejmować szybkozamykające zawory bezpieczeństwa i urządzenia upustowe dobrane do projektu.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-010",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: obsługa?",
+    "question": "Wyjaśnij: obsługa?",
+    "answer": "Monitoruje się ciśnienie przed i za reduktorem, stan filtrów, szczelność i działanie zabezpieczeń. Przy przekroczeniu parametrów postępuje się według instrukcji; nie obchodzi się zaworów bezpieczeństwa.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-011",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: piece, suszarnie, kotły?",
+    "question": "Wyjaśnij: piece, suszarnie, kotły?",
+    "answer": "W instalacjach przemysłowych istotne są blokady powietrza i paliwa, przedmuch komory, kontrola płomienia, temperatura i wentylacja. Zagrożenia obejmują zapłon opóźniony, wybuch mieszaniny, przegrzanie i CO.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-012",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: przykład?",
+    "question": "Wyjaśnij: przykład?",
+    "answer": "Po zaniku płomienia automatyka odcina gaz. Operator nie może ominąć blokady i podać paliwa ręcznie. Dalsze uruchomienie odbywa się zgodnie z procedurą po usunięciu przyczyny.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-013",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: detektory?",
+    "question": "Wyjaśnij: detektory?",
+    "answer": "Detektor musi być dobrany do konkretnego gazu, zakresu stężeń i miejsca montażu. Wymaga kontroli i kalibracji zgodnie z dokumentacją. Alarm detektora powinien uruchamiać przewidziane działania, np. sygnalizację, wentylację lub odcięcie gazu.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-014",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: współpraca instalacji?",
+    "question": "Wyjaśnij: współpraca instalacji?",
+    "answer": "Nie każda instalacja może być wentylowana w ten sam sposób; decyzje o wentylacji i urządzeniach elektrycznych uwzględniają zagrożenie wybuchem. Układy automatyki bezpieczeństwa należy testować według procedur.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-015",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: procedura?",
+    "question": "Wyjaśnij: procedura?",
+    "answer": "Nie używaj otwartego ognia ani przełączników elektrycznych w zagrożonej strefie. Ostrzeż osoby, ewakuuj, jeśli bezpieczne zamknij dopływ gazu, zapewnij przewietrzenie bez tworzenia dodatkowego zagrożenia. Z bezpiecznego miejsca wezwij pogotowie gazowe 992 lub 112.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-016",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: podejrzenie co?",
+    "question": "Wyjaśnij: podejrzenie co?",
+    "answer": "Przerwij narażenie i wyprowadź osoby na świeże powietrze bez narażania ratowników. Wezwij 112. Nie wchodź do niebezpiecznej atmosfery bez odpowiednich uprawnień i wyposażenia ratowniczego.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-017",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: przyrządy?",
+    "question": "Wyjaśnij: przyrządy?",
+    "answer": "Wykorzystuje się manometry, rejestratory, analizatory spalin, detektory gazu i mierniki przepływu. Przyrząd musi mieć odpowiedni zakres, dokładność, stan techniczny i wymagane sprawdzenia metrologiczne.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-018",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: protokół?",
+    "question": "Wyjaśnij: protokół?",
+    "answer": "Powinien jednoznacznie identyfikować instalację, zakres badania, zastosowaną metodę, warunki i wynik, osobę wykonującą oraz wnioski. Nie wolno dopisywać wyników, których faktycznie nie zmierzono.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-019",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: organizacja prac?",
+    "question": "Wyjaśnij: organizacja prac?",
+    "answer": "Dozór zapewnia instrukcje, dobór personelu, właściwe odcięcia, ocenę atmosfery, zabezpieczenie miejsca, kontrolę prac pożarowo niebezpiecznych oraz odbiór. W strefach Ex obowiązują dodatkowe wymagania.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-020",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wyjaśnij: sytuacja egzaminacyjna?",
+    "question": "Wyjaśnij: sytuacja egzaminacyjna?",
+    "answer": "W hali uruchomił się alarm gazowy. D przerywa pracę, wdraża plan awaryjny, organizuje ewakuację i zabezpieczenie miejsca, powiadamia służby i nie dopuszcza do ponownego uruchomienia bez usunięcia przyczyny oraz wymaganych kontroli.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-021",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Wymagania E i D?",
+    "question": "Wymagania E i D?",
+    "answer": "Eksploatacja E dotyczy określonych czynności obsługi, konserwacji, remontu, montażu i kontroli-pomiarów. Dozór D obejmuje kierowanie czynnościami i nadzór. Zakres jest zapisany na świadectwie; sam dokument nie zastępuje upoważnień, instrukcji ani innych wymaganych kwalifikacji.",
+    "pauseSeconds": 8,
+    "verified": false
+  },
+  {
+    "id": "g3-question-022",
+    "group": "G3",
+    "type": "oral_question",
+    "title": "Bezpieczeństwo i pierwsza pomoc?",
+    "question": "Bezpieczeństwo i pierwsza pomoc?",
+    "answer": "Zabezpiecz siebie, przerwij narażenie, wezwij pomoc 112. Przy braku prawidłowego oddechu rozpocznij RKO i zastosuj AED według instrukcji. Nie podejmuj działań w niebezpiecznej atmosferze ani przy energii, której nie odizolowano.",
+    "pauseSeconds": 8,
+    "verified": false
+  }
+]
