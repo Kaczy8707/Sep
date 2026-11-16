@@ -74,7 +74,7 @@ class ExamViewModel(private val container: AppContainer, val config: ExamConfig)
         val item = _ui.value.current ?: return
         _ui.update { it.copy(revealed = true, answering = false) }
         if (config.oral) {
-            val answerStart = container.trackFactory.examQuestion(item, container.currentSettings().examTiming).answerStart
+            val answerStart = container.trackFactory.examQuestion(item, container.currentSettings().examTiming, normalize = false).answerStart
             container.connection.playItems(listOf(MediaIds.exam(item.id)), 0, answerStart)
         }
     }

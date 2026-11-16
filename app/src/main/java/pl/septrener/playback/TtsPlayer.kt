@@ -152,7 +152,7 @@ class TtsPlayer(
             val content = container.content.ensureLoaded()
             val settings = container.loadSettings()
             val timing = settings.examTiming
-            val resolved = ids.mapIndexedNotNull { i, id -> container.trackFactory.forMediaId(id, content, timing)?.let { i to it } }
+            val resolved = ids.mapIndexedNotNull { i, id -> container.trackFactory.forMediaId(id, content, timing, settings.speakSymbols)?.let { i to it } }
             val tracks = resolved.map { it.second }
             val index = resolved.indexOfFirst { it.first >= requestedIndex }.coerceAtLeast(0)
             queue.autoAdvance = tracks.any { it.kind == TrackKind.EXAM_QUESTION } || settings.autoAdvanceLessons
@@ -231,7 +231,7 @@ class TtsPlayer(
         val content = container.content.ensureLoaded()
         val settings = container.loadSettings()
         val timing = settings.examTiming
-        val restored = PlaybackRestorer.restore(saved) { container.trackFactory.forMediaId(it, content, timing) }
+        val restored = PlaybackRestorer.restore(saved) { container.trackFactory.forMediaId(it, content, timing, settings.speakSymbols) }
         if (restored == null || queue.tracks.isNotEmpty()) { onQueueStateChanged(); return }
         queue.autoAdvance = restored.tracks.any { it.kind == TrackKind.EXAM_QUESTION } || settings.autoAdvanceLessons
         queue.setPlaylist(restored.tracks, restored.trackIndex, restored.segmentIndex)

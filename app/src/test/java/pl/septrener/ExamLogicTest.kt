@@ -50,7 +50,8 @@ class ExamLogicTest {
         assertEquals(listOf(null, 8_000L, null, 1_200L), engine.queued.map { it.silenceMs })
         // „Pokaż odpowiedź” = przeskok do odpowiedzi z pominięciem pauzy
         queue.seekSegment(queue.currentTrack!!.answerStart)
-        assertEquals("Odpowiedź. U = I × R.", engine.queued.first().text)
+        assertEquals(queue.currentTrack!!.segments[queue.currentTrack!!.answerStart].spoken, engine.queued.first().text)
+        assertEquals("Odpowiedź. U równa się I razy R.", engine.queued.first().text)
     }
 
     @Test

@@ -86,5 +86,85 @@
     "title": "LEKCJA 11. 11. Dokumentacja, przeglądy i odpowiedzialność dozoru.",
     "content": "LEKCJA 11. 11. Dokumentacja, przeglądy i odpowiedzialność dozoru.\n\n\nCo zawiera dokumentacja?.\nSchematy aktualne po zmianach, instrukcje eksploatacji, oceny ryzyka, protokoły pomiarów, wykazy urządzeń, nastawy zabezpieczeń, rejestry usterek i przeglądów, upoważnienia i polecenia tam, gdzie są wymagane.\n\n\nOdbiór po remoncie.\nNależy potwierdzić zgodność z dokumentacją, kompletność osłon, prawidłowe połączenia ochronne, działanie zabezpieczeń, wyniki wymaganych badań oraz bezpieczne przekazanie do użytkowania.\n\n\nBłąd dozoru.\nDozór nie powinien podpisywać protokołu bez sprawdzenia zakresu prac i wiarygodności danych. Brak reakcji na powtarzające się usterki i brak aktualizacji dokumentacji mogą prowadzić do poważnych zdarzeń.\n\n\nPodsumowanie lekcji. Zatrzymaj nagranie i własnymi słowami wyjaśnij zasadę działania, zagrożenia oraz wymagane zabezpieczenia.",
     "verified": false
+  },
+  {
+    "id": "g1-lesson-12",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 12. Bezpieczne odłączanie i LOTO.",
+    "content": "LEKCJA 12. Bezpieczne odłączanie i LOTO.\n\nWyjaśnienie.\nOdłączenie zasilania jest procesem, a nie tylko przełączeniem wyłącznika. Najpierw identyfikuje się obwód i wszystkie źródła energii: sieć, UPS, agregat, instalację fotowoltaiczną, kondensatory i możliwe zasilanie zwrotne. Następnie wykonuje się wyłączenie zgodnie z instrukcją, zabezpiecza przed ponownym załączeniem, sprawdza brak napięcia odpowiednim sprawdzonym wskaźnikiem i stosuje wymagane uziemienia, osłony oraz oznakowanie. Blokada LOTO powinna być przypisana do osób i źródeł energii zgodnie z procedurą zakładową. Nie należy utożsamiać wyłączenia sterowania z odłączeniem energii.\n\nPrzykład praktyczny.\nW rozdzielnicy z zasilaniem podstawowym i UPS po wyłączeniu głównego rozłącznika część torów nadal może być pod napięciem. Przed pracą należy ustalić granice izolacji i potwierdzić brak napięcia w miejscu pracy.\n\nSprawdź wiedzę.\nPytanie: Dlaczego nie wystarczy wyłączyć wyłącznika głównego? Odpowiedź: Ponieważ może występować inne źródło energii lub zasilanie zwrotne; konieczne są identyfikacja źródeł, zabezpieczenie i weryfikacja.\n\nPodsumowanie. Powtórz własnymi słowami, jakie zagrożenie rozpoznajesz, jak je ograniczasz i jak dokumentujesz wynik.",
+    "verified": false
+  },
+  {
+    "id": "g1-lesson-13",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 13. Dobór przewodów i zabezpieczeń.",
+    "content": "LEKCJA 13. Dobór przewodów i zabezpieczeń.\n\nWyjaśnienie.\nPrzekrój przewodu dobiera się nie tylko do prądu obciążenia, lecz także do sposobu ułożenia, liczby obciążonych żył, temperatury, warunków chłodzenia, spadku napięcia i wytrzymałości zwarciowej. Dla typowej koordynacji przeciążeniowej rozważa się warunek Ib ≤ In ≤ Iz, gdzie Ib to prąd obliczeniowy, In prąd znamionowy zabezpieczenia, a Iz dopuszczalna obciążalność przewodu po uwzględnieniu korekt. Konieczne jest także sprawdzenie właściwego zadziałania zabezpieczenia przy zwarciu i zgodności z normami oraz dokumentacją.\n\nPrzykład praktyczny.\nPrzewód o tym samym przekroju ma inną obciążalność w powietrzu niż w ocieplonej ścianie. Zmiana sposobu ułożenia może wymagać ponownego obliczenia.\n\nSprawdź wiedzę.\nPytanie: Czy sam przekrój 2,5 mm² przesądza o doborze zabezpieczenia? Odpowiedź: Nie. Decydują również materiał, izolacja, sposób ułożenia, temperatura, grupowanie i warunki zwarciowe.\n\nPodsumowanie. Powtórz własnymi słowami, jakie zagrożenie rozpoznajesz, jak je ograniczasz i jak dokumentujesz wynik.",
+    "verified": false
+  },
+  {
+    "id": "g1-lesson-14",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 14. Pomiary: plan i protokół.",
+    "content": "LEKCJA 14. Pomiary: plan i protokół.\n\nWyjaśnienie.\nBadania odbiorcze i okresowe obejmują oględziny i dobrane do obiektu próby, między innymi ciągłość przewodów ochronnych, rezystancję izolacji, ocenę samoczynnego wyłączenia zasilania, badania RCD i sprawdzenie polaryzacji. Nie każdy pomiar jest właściwy dla każdego obwodu; kolejność i metoda muszą uwzględniać bezpieczeństwo oraz elektronikę podłączoną do instalacji. Protokół powinien identyfikować obiekt, obwody, warunki, metodę, przyrząd, wyniki, kryteria oceny, niezgodności i osobę odpowiedzialną. Wynik bez kryterium i identyfikacji obwodu jest niewystarczający.\n\nPrzykład praktyczny.\nJeżeli wynik pętli zwarcia jest bliski dopuszczalnej granicy, należy uwzględnić niepewność, warunki pomiaru i wymagany czas wyłączenia; nie wolno automatycznie oznaczać go jako pozytywnego.\n\nSprawdź wiedzę.\nPytanie: Czy przycisk TEST na RCD zastępuje pomiar? Odpowiedź: Nie. Sprawdza funkcję urządzenia, ale nie pełne parametry wymagane w badaniu instalacji.\n\nPodsumowanie. Powtórz własnymi słowami, jakie zagrożenie rozpoznajesz, jak je ograniczasz i jak dokumentujesz wynik.",
+    "verified": false
+  },
+  {
+    "id": "g1-lesson-15",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 15. Wyłączniki różnicowoprądowe: dobór i diagnostyka.",
+    "content": "LEKCJA 15. Wyłączniki różnicowoprądowe: dobór i diagnostyka.\n\nWyjaśnienie.\nRCD mierzy sumę prądów w przewodach czynnych. Przy prądzie różnicowym odpowiedniej wielkości wyłącza obwód. RCD nie zastępuje zabezpieczenia nadprądowego, chyba że jest częścią aparatu zespolonego RCBO. Dobór typu zależy od możliwego kształtu prądu różnicowego: sinusoidalnego, pulsującego lub zawierającego składową stałą. W układach z elektroniką mocy błędny dobór może spowodować brak oczekiwanego działania. Należy także rozpatrywać selektywność, prądy upływu i instrukcje producenta.\n\nPrzykład praktyczny.\nJeśli RCD wyzwala po uruchomieniu falownika, nie należy go mostkować. Trzeba zbadać prądy upływu, filtr EMC, typ aparatu i stan izolacji.\n\nSprawdź wiedzę.\nPytanie: Czy RCD 30 mA gwarantuje ochronę przy dotknięciu L i N? Odpowiedź: Nie, ponieważ prądy mogą się równoważyć i nie powstanie wymagany prąd różnicowy.\n\nPodsumowanie. Powtórz własnymi słowami, jakie zagrożenie rozpoznajesz, jak je ograniczasz i jak dokumentujesz wynik.",
+    "verified": false
+  },
+  {
+    "id": "g1-lesson-16",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 16. Zwarcie, przeciążenie i selektywność.",
+    "content": "LEKCJA 16. Zwarcie, przeciążenie i selektywność.\n\nWyjaśnienie.\nPrzeciążenie oznacza nadmierny prąd w sprawnym obwodzie, natomiast zwarcie jest połączeniem o małej impedancji między punktami o różnych potencjałach. Zabezpieczenia muszą chronić przewody i urządzenia oraz zapewniać odpowiednie czasy wyłączenia. Selektywność oznacza, że przy uszkodzeniu wyłącza możliwie najbliższe zabezpieczenie, bez niepotrzebnego odłączania całego obiektu. Ocena wymaga charakterystyk czasowo-prądowych i danych producenta, a nie tylko porównania prądów znamionowych.\n\nPrzykład praktyczny.\nDwa wyłączniki nadprądowe o wartościach 16 A i 25 A nie muszą być selektywne dla każdego prądu zwarciowego.\n\nSprawdź wiedzę.\nPytanie: Czy większa wartość zabezpieczenia zawsze rozwiąże problem wyzwalania? Odpowiedź: Nie; może doprowadzić do utraty ochrony przewodu i niespełnienia warunków wyłączenia.\n\nPodsumowanie. Powtórz własnymi słowami, jakie zagrożenie rozpoznajesz, jak je ograniczasz i jak dokumentujesz wynik.",
+    "verified": false
+  },
+  {
+    "id": "g1-lesson-17",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 17. Silniki: tabliczka znamionowa i diagnostyka.",
+    "content": "LEKCJA 17. Silniki: tabliczka znamionowa i diagnostyka.\n\nWyjaśnienie.\nPrzed uruchomieniem silnika sprawdza się napięcie i częstotliwość znamionową, sposób połączenia uzwojeń, prąd, moc, obroty, klasę izolacji, warunki chłodzenia i dopuszczalny rodzaj pracy. W silniku trójfazowym zamiana dwóch faz zwykle zmienia kierunek obrotów, ale przed taką czynnością trzeba wyłączyć i zabezpieczyć zasilanie. Objawy przeciążenia obejmują wzrost prądu, temperatury i spadek prędkości. Usterki mechaniczne, zanik fazy i asymetria napięć również mogą prowadzić do przegrzania.\n\nPrzykład praktyczny.\nPompa pobiera nadmierny prąd. Należy porównać pomiary z tabliczką, sprawdzić napięcia, obciążenie hydrauliczne i stan mechaniczny, zamiast podnosić nastawę zabezpieczenia bez diagnozy.\n\nSprawdź wiedzę.\nPytanie: Dlaczego silnik może się przegrzać mimo braku zwarcia? Odpowiedź: Z powodu przeciążenia, niedostatecznego chłodzenia, zaniku fazy, asymetrii lub uszkodzenia mechanicznego.\n\nPodsumowanie. Powtórz własnymi słowami, jakie zagrożenie rozpoznajesz, jak je ograniczasz i jak dokumentujesz wynik.",
+    "verified": false
+  },
+  {
+    "id": "g1-lesson-18",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 18. Ochrona odgromowa i przepięciowa.",
+    "content": "LEKCJA 18. Ochrona odgromowa i przepięciowa.\n\nWyjaśnienie.\nOchrona przepięciowa ogranicza skutki przejściowych wzrostów napięcia pochodzących między innymi od wyładowań atmosferycznych i łączeń. Ograniczniki przepięć SPD dobiera się do układu sieci, spodziewanych zagrożeń, poziomu ochrony i koordynacji stopni. SPD nie zastępuje instalacji odgromowej ani połączeń wyrównawczych. Istotne są krótkie połączenia, właściwe zabezpieczenie dobezpieczające oraz kontrola wskaźnika stanu.\n\nPrzykład praktyczny.\nW obiekcie z instalacją PV i zasilaniem AC mogą być potrzebne osobne środki ochrony dla różnych stron układu, zgodnie z projektem.\n\nSprawdź wiedzę.\nPytanie: Czy ogranicznik przepięć chroni przed długotrwałym przeciążeniem? Odpowiedź: Nie. Służy do ograniczania określonych przepięć przejściowych.\n\nPodsumowanie. Powtórz własnymi słowami, jakie zagrożenie rozpoznajesz, jak je ograniczasz i jak dokumentujesz wynik.",
+    "verified": false
+  },
+  {
+    "id": "g1-lesson-19",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 19. Instalacje PV, UPS i agregaty: zasilanie zwrotne.",
+    "content": "LEKCJA 19. Instalacje PV, UPS i agregaty: zasilanie zwrotne.\n\nWyjaśnienie.\nInstalacje z dodatkowymi źródłami energii zmieniają zasady identyfikacji napięcia i odłączania. Moduły PV wytwarzają napięcie DC przy oświetleniu, nawet gdy falownik jest wyłączony. UPS może utrzymywać napięcie po zaniku sieci, a agregat może zasilać wydzielone obwody. Przełączanie źródeł, ochrona przeciwporażeniowa i układ przewodów ochronnych wymagają rozwiązania projektowego. Nie wolno zakładać, że odłączenie sieci publicznej wyłącza cały obiekt.\n\nPrzykład praktyczny.\nPodczas prac w rozdzielnicy obiektu z UPS sprawdza się zarówno zasilanie sieciowe, jak i wyjścia UPS oraz możliwe obejścia serwisowe.\n\nSprawdź wiedzę.\nPytanie: Czy wyłączenie falownika PV usuwa napięcie na przewodach modułów? Odpowiedź: Nie zawsze; oświetlone moduły mogą nadal generować napięcie stałe.\n\nPodsumowanie. Powtórz własnymi słowami, jakie zagrożenie rozpoznajesz, jak je ograniczasz i jak dokumentujesz wynik.",
+    "verified": false
+  },
+  {
+    "id": "g1-lesson-20",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 20. Dozór: polecenia, role i dopuszczenie.",
+    "content": "LEKCJA 20. Dozór: polecenia, role i dopuszczenie.\n\nWyjaśnienie.\nOsoba sprawująca dozór musi znać instrukcje, granice odpowiedzialności, kwalifikacje i upoważnienia pracowników, zasady organizacji prac oraz sposób przekazania urządzenia do eksploatacji. Przy pracach szczególnie niebezpiecznych stosuje się wymagane polecenia i podział funkcji. Zakres prac, miejsce, zagrożenia, wyłączenia, zabezpieczenia i komunikacja muszą być jednoznaczne. Przed wznowieniem pracy po przerwie ocenia się, czy warunki bezpieczeństwa nie uległy zmianie.\n\nPrzykład praktyczny.\nZespół ma wymienić aparat w rozdzielnicy z dwoma źródłami zasilania. Dozór wymaga sprawdzenia obu źródeł, koordynacji wyłączeń, właściwego dopuszczenia i odbioru po pracy.\n\nSprawdź wiedzę.\nPytanie: Czy świadectwo D samo w sobie uprawnia do każdej pracy? Odpowiedź: Nie. Konieczne są właściwy zakres kwalifikacji, organizacja pracy i wymagane upoważnienia.\n\nPodsumowanie. Powtórz własnymi słowami, jakie zagrożenie rozpoznajesz, jak je ograniczasz i jak dokumentujesz wynik.",
+    "verified": false
+  },
+  {
+    "id": "g1-lesson-21",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 21. Awaria i pierwsza pomoc: decyzje w praktyce.",
+    "content": "LEKCJA 21. Awaria i pierwsza pomoc: decyzje w praktyce.\n\nWyjaśnienie.\nPrzy porażeniu prądem najpierw zabezpiecza się ratownika i bezpiecznie odłącza źródło zagrożenia. Nie wolno dotykać poszkodowanego pozostającego pod napięciem. Należy wezwać pomoc pod 112, ocenić przytomność i oddech oraz postępować według aktualnych zasad pierwszej pomocy. Przy braku prawidłowego oddechu rozpocząć RKO i użyć AED, jeśli jest dostępne. W przypadku łuku elektrycznego priorytetem jest odsunięcie ludzi od zagrożenia, alarmowanie i zabezpieczenie miejsca. Po zdarzeniu dokumentuje się okoliczności i nie przywraca pracy urządzenia bez ustalenia przyczyny.\n\nPrzykład praktyczny.\nPracownik leży przy otwartej rozdzielnicy. Nie należy go chwytać, dopóki nie ma pewności, że miejsce jest bezpieczne elektrycznie.\n\nSprawdź wiedzę.\nPytanie: Co jest pierwszą czynnością ratownika przy porażeniu? Odpowiedź: Zapewnienie własnego bezpieczeństwa i przerwanie narażenia na energię elektryczną w bezpieczny sposób.\n\nPodsumowanie. Powtórz własnymi słowami, jakie zagrożenie rozpoznajesz, jak je ograniczasz i jak dokumentujesz wynik.",
+    "verified": false
   }
 ]

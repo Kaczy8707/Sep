@@ -11,7 +11,7 @@ Działa w pełni **offline** (aplikacja nie ma uprawnienia `INTERNET`), czyta le
 
 | Obszar | Co jest |
 |---|---|
-| Biblioteka | G1 (11 lekcji), G2 (10), G3 (10); zakładki, ukończenie (ręczne i automatyczne po odsłuchu), filtr, wyszukiwarka pełnotekstowa (bez rozróżniania wielkości liter i polskich znaków) |
+| Biblioteka | G1 (21 lekcji), G2 (10), G3 (10); zakładki, ukończenie (ręczne i automatyczne po odsłuchu), filtr, wyszukiwarka pełnotekstowa (bez rozróżniania wielkości liter i polskich znaków) |
 | Lektor | `TextToSpeech` z `Locale("pl","PL")`, sprawdzenie polskiego głosu + instrukcja instalacji, wybór silnika i głosu (lista z jakością, offline/online, wskazówką płci jeśli silnik ją podaje), prędkość 0,7–1,4, wysokość głosu, odsłuch próbny |
 | Odtwarzanie w tle | `MediaSessionService` (media3) typu `mediaPlayback`, powiadomienie z play/pauza/następna/poprzednia, ekran blokady, przyciski słuchawek/Bluetooth, fokus audio (pauza przy połączeniu, wznowienie po), pauza po odłączeniu słuchawek, `POST_NOTIFICATIONS` na Android 13+ |
 | Fragmenty | podział tekstu na akapity/zdania, każdy fragment < `getMaxSpeechInputLength()`; pauza i wznowienie **od początku bieżącego fragmentu** (bez śledzenia pojedynczych słów); przewijanie fragmentów; dotknięcie fragmentu = czytaj od niego |
@@ -19,14 +19,16 @@ Działa w pełni **offline** (aplikacja nie ma uprawnienia `INTERNET`), czyta le
 | Egzamin ustny | pytanie → odliczana pauza (domyślnie 8 s, konfigurowalna 3–30 s; opcjonalnie pauzy z paczki) → odpowiedź; przyciski **Odpowiadam**, **Pokaż odpowiedź**, **Umiem**, **Powtórz**; losowanie, filtr G1/G2/G3, tryb „tylko do powtórki” |
 | Inne tryby | cichy quiz (bez dźwięku); słuchanie pytań w tle jako playlista |
 | Postępy | Room: umiem/trudne, liczba powtórek, ostatnia data, powtórki interwałowe (system Leitnera: 0/1/3/7/14/30 dni) |
-| Import | paczki JSON przez Storage Access Framework, walidacja schematu i pól, migracja formatu (tablica v0 → manifest v1), raport z pominiętych pozycji |
+| Import | paczki JSON przez Storage Access Framework, walidacja schematu i pól, migracja formatu (tablica v0 → manifest v1); przed importem kopia zapasowa postępów, raport (nowe/zmienione/bez zmian/pominięte), zachowanie zakładek i ocen, przywracanie kopii |
+| Wymowa | symbole, wzory i skróty czytane słownie (Ω → om, ≤ → mniejsze lub równe, √3 → pierwiastek z trzech, RCD → er ce de) – tylko w mowie, tekst na ekranie bez zmian; przełącznik i „Test wymowy” |
 | UI | Material 3, tryb ciemny (i kolory dynamiczne na Android 12+), duże przyciski, etykiety dla TalkBack, polskie teksty |
 
 ## Treści
 
 Pliki w `app/src/main/assets/content/` pochodzą z pakietu w `materialy/`:
 
-* `G1/G2/G3_lessons.json`, `G2/G3_exam.json` – skopiowane bez zmian,
+* `G1/G2/G3_lessons.json`, `G2/G3_exam.json` – skopiowane bez zmian; `G1_lessons.json` zawiera 21 lekcji z pakietu rozbudowy
+  (`materialy/rozbudowa_G1/`, raport: `materialy/rozbudowa_G1/RAPORT_IMPORTU.md`),
 * `G1_exam.json` – w pakiecie był pusty (`[]`), dlatego został **dosłownie** przeniesiony z
   `materialy/G1_Audiobook_Dialogi_Egzaminacyjne.txt` skryptem `tools/convert_g1_dialogs.py`
   (22 pytania + 10 „sytuacji dozoru”; test `ContentParserTest.g1ExamWasConvertedVerbatimFromTxt` sprawdza zgodność z TXT).
@@ -105,7 +107,7 @@ startuje zgodnie z ograniczeniami Androida 12/14+. Konwencja wewnętrzna: `posit
 
 Lint wskazuje nowsze wersje bibliotek – projekt buduje się na powyższych; aktualizację warto zrobić osobnym krokiem z ponownym uruchomieniem testów.
 
-## Testy (44, wszystkie zielone)
+## Testy (56, wszystkie zielone)
 
 * `ContentParserTest` – parser JSON, walidacja, migracja v0→v1, odrzucanie braków, zgodność G1 z TXT,
 * `TextChunkerTest` – limity długości fragmentów na wszystkich lekcjach, zachowanie treści,
@@ -115,11 +117,13 @@ Lint wskazuje nowsze wersje bibliotek – projekt buduje się na powyższych; ak
 * `PlaybackRestoreTest` – zapis pozycji, nowa instancja DataStore („ubicie procesu”), łagodne odtworzenie przy zmienionej treści,
 * `TtsPlayerTest` – odtwarzacz media3: playlista, play/pauza/wznowienie, fokus audio, odłączenie słuchawek, następna lekcja, odtworzenie stanu,
 * `OfflineAndImportTest` – brak uprawnienia `INTERNET`, wczytanie assetów, import/usuwanie paczek,
+* `G1ExtensionImportTest` – import rozbudowy G1 na poprzedniej wersji z zachowaniem postępów, kopia i przywracanie,
+* `TtsNormalizerTest` – wymowa jednostek, wzorów i skrótów, pokrycie całej treści, limity fragmentów,
 * `TtsEngineDeviceTest` (androidTest) – prawdziwy syntezator na urządzeniu.
 
 ## Co zostało zweryfikowane, a co nie
 
-* ✅ Czysty build `assembleDebug` i `assembleRelease`, `lintDebug` bez błędów, 44 testy jednostkowe/Robolectric.
+* ✅ Czysty build `assembleDebug` i `assembleRelease`, `lintDebug` bez błędów, 56 testów jednostkowych/Robolectric.
 * ⚠️ **Nie uruchomiono na fizycznym telefonie ani emulatorze** (środowisko budowania nie ma akceleracji sprzętowej).
   Zachowanie prawdziwego silnika TTS, powiadomienia i ekranu blokady trzeba sprawdzić na urządzeniu –
   pomoże w tym `connectedDebugAndroidTest`.

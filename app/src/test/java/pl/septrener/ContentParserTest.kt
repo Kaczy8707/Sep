@@ -18,7 +18,7 @@ class ContentParserTest {
     @Test
     fun builtInAssetsParseWithoutIssues() {
         val expected = mapOf(
-            "G1_lessons.json" to 11, "G2_lessons.json" to 10, "G3_lessons.json" to 10,
+            "G1_lessons.json" to 21, "G2_lessons.json" to 10, "G3_lessons.json" to 10,
             "G1_exam.json" to 32, "G2_exam.json" to 22, "G3_exam.json" to 22,
         )
         for ((file, count) in expected) {
@@ -36,6 +36,9 @@ class ContentParserTest {
         assertNull(r.migratedFrom)
         assertEquals(75, r.items.size)
         assertEquals(31, r.items.count { it.type == ItemType.LESSON })
+        // manifest z pierwszego pakietu ma 11 lekcji G1; aplikacja zawiera już rozszerzenie do 21
+        val builtInG1 = ContentParser.parse(TestFiles.asset("G1_lessons.json"), "g1").items
+        assertEquals(r.items.filter { it.group == Group.G1 && it.isLesson }.map { it.copy(origin = "") }, builtInG1.take(11).map { it.copy(origin = "") })
         val g2 = ContentParser.parse(TestFiles.asset("G2_exam.json"), "g2").items
         val fromManifest = r.items.filter { it.group == Group.G2 && it.isQuestion }
         assertEquals(g2.map { it.id to it.answer }, fromManifest.map { it.id to it.answer })

@@ -12,8 +12,10 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
+import pl.septrener.content.ContentImporter
 import pl.septrener.content.ContentRepository
 import pl.septrener.data.AppDatabase
+import pl.septrener.data.ProgressBackup
 import pl.septrener.data.ProgressRepository
 import pl.septrener.playback.PlaybackConnection
 import pl.septrener.playback.PlaybackStore
@@ -34,6 +36,8 @@ class AppContainer(val app: Application) {
         .addMigrations(*AppDatabase.MIGRATIONS)
         .build()
     val progress = ProgressRepository(database.progressDao())
+    val progressBackup = ProgressBackup(progress, java.io.File(app.filesDir, "backups"))
+    val importer = ContentImporter(content, progress, progressBackup)
     val settingsStore = SettingsStore(app.settingsDataStore)
     val playbackStore = PlaybackStore(app.playbackDataStore)
     val tts by lazy { AndroidTtsEngine(app) }

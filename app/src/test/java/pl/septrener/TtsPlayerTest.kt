@@ -57,7 +57,7 @@ class TtsPlayerTest {
         idle()
         assertTrue(player.playWhenReady)
         val track = container.playback.value.track!!
-        assertEquals(track.segments.drop(2).map { it.text }, engine.queued.map { it.text })
+        assertEquals(track.segments.drop(2).map { it.spoken }, engine.queued.map { it.text })
         val audio = shadowOf(app.getSystemService(Context.AUDIO_SERVICE) as AudioManager)
         assertEquals(AudioManager.AUDIOFOCUS_GAIN, audio.lastAudioFocusRequest.durationHint)
 
@@ -72,7 +72,7 @@ class TtsPlayerTest {
         assertTrue(engine.queued.isEmpty())
         player.play()
         idle()
-        assertEquals(track.segments[3].text, engine.queued.first().text)
+        assertEquals(track.segments[3].spoken, engine.queued.first().text)
 
         // utrata fokusu (np. połączenie) -> pauza, odzyskanie -> wznowienie
         audio.lastAudioFocusRequest.listener.onAudioFocusChange(AudioManager.AUDIOFOCUS_LOSS_TRANSIENT)

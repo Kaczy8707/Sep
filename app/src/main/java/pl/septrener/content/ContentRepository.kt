@@ -26,15 +26,30 @@ data class ContentState(
 
 data class ImportReport(
     val fileName: String,
+    /** Liczba poprawnych pozycji w paczce. */
     val imported: Int,
+    /** Pozycje o identyfikatorach już istniejących (zmienione + bez zmian). */
     val replaced: Int,
     val issues: List<ParseIssue>,
     val migratedFrom: Int?,
     val error: String? = null,
+    /** Nowe pozycje (tytuły). */
+    val added: List<ContentItem> = emptyList(),
+    /** Istniejące pozycje ze zmienioną treścią. */
+    val updated: List<ContentItem> = emptyList(),
+    val unchanged: Int = 0,
+    /** Plik kopii zapasowej postępów utworzonej przed importem. */
+    val backupFile: String? = null,
+    /** Liczba pozycji z zapisanym postępem, których dotyczył import (postęp zachowany). */
+    val progressKept: Int = 0,
+    /** Identyfikatory wszystkich poprawnych pozycji paczki. */
+    val itemIds: List<String> = emptyList(),
 )
 
 /** Treść wbudowana (assets/content) + paczki zaimportowane przez użytkownika (files/packs). Działa w pełni offline. */
-class ContentRepository(private val context: Context) {
+private fun ContentItem.sameContent(other: ContentItem) = copy(origin = "") == other.copy(origin = "")
+
+class ContentRepository(private val context: Context, private val builtIn: List<String> = BUILT_IN) {
     private val _state = MutableStateFlow(ContentState())
     val state: StateFlow<ContentState> = _state.asStateFlow()
     private val mutex = Mutex()
@@ -50,7 +65,7 @@ class ContentRepository(private val context: Context) {
         withContext(Dispatchers.IO) {
             val issues = mutableListOf<String>()
             val merged = LinkedHashMap<String, ContentItem>()
-            for (name in BUILT_IN) {
+            for (name in builtIn) {
                 runCatching {
                     val text = context.assets.open("content/$name").bufferedReader().use { it.readText() }
                     ContentParser.parse(text, origin = "wbudowane: $name")
@@ -93,11 +108,25 @@ class ContentRepository(private val context: Context) {
         }
         if (!result.isUsable) return ImportReport(name, 0, 0, result.issues, result.migratedFrom, "Brak poprawnych pozycji – nic nie zaimportowano")
         val current = ensureLoaded()
-        val replaced = result.items.count { current.item(it.id) != null }
-        withContext(Dispatchers.IO) { File(packsDir, name).writeText(text) }
+        val added = result.items.filter { current.item(it.id) == null }
+        val updated = result.items.filter { new -> current.item(new.id)?.let { !it.sameContent(new) } == true }
+        val replaced = result.items.size - added.size
+        beforeApply?.invoke(name)
+        withContext(Dispatchers.IO) {
+            val target = File(packsDir, name)
+            if (target.exists()) target.copyTo(File(packsDir.parentFile, "backups/packs/$name.${System.currentTimeMillis()}.bak").apply { parentFile?.mkdirs() }, overwrite = true)
+            target.writeText(text)
+        }
         reload()
-        return ImportReport(name, result.items.size, replaced, result.issues, result.migratedFrom)
+        return ImportReport(
+            name, result.items.size, replaced, result.issues, result.migratedFrom,
+            added = added, updated = updated, unchanged = replaced - updated.size,
+            itemIds = result.items.map { it.id },
+        )
     }
+
+    /** Wywoływane tuż przed zapisaniem paczki (np. utworzenie kopii zapasowej postępów). */
+    var beforeApply: (suspend (fileName: String) -> Unit)? = null
 
     suspend fun deletePack(fileName: String) {
         withContext(Dispatchers.IO) { File(packsDir, sanitize(fileName)).delete() }

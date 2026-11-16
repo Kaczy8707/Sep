@@ -25,4 +25,10 @@ class ProgressRepository(private val dao: ProgressDao, private val clock: () -> 
         update(item) { it.copy(completed = true, lastSegment = 0, repetitions = it.repetitions + 1, lastReviewedAt = clock()) }
     suspend fun recordAnswer(item: ContentItem, known: Boolean) = update(item) { Srs.grade(it, known, clock()) }
     suspend fun resetAll() = dao.deleteAll()
+    suspend fun snapshot(): List<ItemProgress> = mutex.withLock { dao.getAll() }
+    suspend fun replaceAll(items: List<ItemProgress>) = mutex.withLock { dao.replaceAll(items) }
+    /** Po zmianie treści lekcji stary indeks fragmentu może wskazywać inne miejsce – wznowienie od początku. */
+    suspend fun resetResumePoint(itemId: String) = mutex.withLock {
+        dao.get(itemId)?.let { if (it.lastSegment != 0) dao.upsert(it.copy(lastSegment = 0)) }
+    }
 }

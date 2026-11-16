@@ -35,6 +35,7 @@ import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -53,7 +54,12 @@ import pl.septrener.AppContainer
 import pl.septrener.BuildConfig
 import pl.septrener.content.ImportReport
 import pl.septrener.settings.AppSettings
+import pl.septrener.tts.TtsNormalizer
 import pl.septrener.tts.TtsStatus
+import pl.septrener.data.BackupInfo
+import pl.septrener.ui.displayTitle
+import java.text.DateFormat
+import java.util.Date
 import pl.septrener.ui.DISCLAIMER
 import pl.septrener.ui.components.ScreenScaffold
 import pl.septrener.ui.components.SectionTitle
@@ -78,21 +84,27 @@ fun SettingsScreen(container: AppContainer, outerPadding: PaddingValues) {
     var pause by remember(settings.examPauseSeconds) { mutableFloatStateOf(settings.examPauseSeconds.toFloat()) }
     var report by remember { mutableStateOf<ImportReport?>(null) }
     var importing by remember { mutableStateOf(false) }
+    var backups by remember { mutableStateOf<List<BackupInfo>>(emptyList()) }
+    var confirmRestore by remember { mutableStateOf<BackupInfo?>(null) }
+    var restoreMessage by remember { mutableStateOf<String?>(null) }
+    LaunchedEffect(Unit) { backups = container.progressBackup.list() }
 
     val importLauncher = rememberLauncherForActivityResult(ActivityResultContracts.OpenDocument()) { uri: Uri? ->
         if (uri != null) {
             importing = true
             scope.launch {
-                report = container.content.import(uri, displayName(ctx, uri))
+                report = container.importer.import(uri, displayName(ctx, uri))
+                backups = container.progressBackup.list()
                 importing = false
             }
         }
     }
 
-    fun test() {
+    fun speak(text: String) {
         container.connection.pause()
-        container.tts.speakTest(SAMPLE)
+        container.tts.speakTest(if (settings.speakSymbols) TtsNormalizer.normalize(text) else text)
     }
+    fun test() = speak(SAMPLE)
 
     ScreenScaffold("Ustawienia", outerPadding) { inner ->
         Column(Modifier.padding(inner).verticalScroll(rememberScrollState()).padding(16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -167,6 +179,18 @@ fun SettingsScreen(container: AppContainer, outerPadding: PaddingValues) {
                 onValueChangeFinished = { scope.launch { container.settingsStore.setPitch(pitch) } },
             )
 
+            SectionTitle("Wymowa symboli i skrótów")
+            SwitchRow("Czytaj symbole i skróty słownie (zalecane)", settings.speakSymbols) { v -> scope.launch { container.settingsStore.setSpeakSymbols(v) } }
+            Text(
+                "Np. „Ω” → „om”, „≤” → „mniejsze lub równe”, „√3” → „pierwiastek z trzech”, „RCD” → „er ce de”, „TN-C-S” → „te en ce es”. " +
+                    "Zmienia tylko to, co słyszysz – tekst na ekranie zostaje bez zmian. Zmiana działa od następnego uruchomienia lekcji.",
+                style = MaterialTheme.typography.bodySmall,
+            )
+            OutlinedButton(onClick = { speak(TtsNormalizer.PRONUNCIATION_SAMPLE) }, enabled = status is TtsStatus.Ready, modifier = Modifier.fillMaxWidth().heightIn(min = 56.dp)) {
+                Text("Test wymowy wzorów i skrótów")
+            }
+            if (settings.speakSymbols) Text("Odczyt: " + TtsNormalizer.normalize(TtsNormalizer.PRONUNCIATION_SAMPLE), style = MaterialTheme.typography.bodySmall)
+
             SectionTitle("Odtwarzanie i egzamin")
             SwitchRow("Po lekcji przechodź automatycznie do następnej", settings.autoAdvanceLessons) { v -> scope.launch { container.settingsStore.setAutoAdvance(v) } }
             Text("Pauza na odpowiedź: ${pause.toInt()} s (domyślnie 8 s)", style = MaterialTheme.typography.bodyLarge)
@@ -192,6 +216,16 @@ fun SettingsScreen(container: AppContainer, outerPadding: PaddingValues) {
                     IconButton(onClick = { scope.launch { container.content.deletePack(name) } }) { Icon(Icons.Filled.Delete, contentDescription = "Usuń paczkę $name") }
                 }
             }
+            Text(
+                "Przed każdym importem tworzona jest kopia postępów (zakładki, ukończenia, oceny). " +
+                    "Postępy są przypisane do identyfikatorów, więc import tych samych id ich nie usuwa.",
+                style = MaterialTheme.typography.bodySmall,
+            )
+            backups.firstOrNull()?.let { b ->
+                Text("Kopie postępów: ${backups.size} · ostatnia: ${DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.SHORT).format(Date(b.createdAt))} (${b.reason}, ${b.itemCount} pozycji)", style = MaterialTheme.typography.bodySmall)
+                OutlinedButton(onClick = { confirmRestore = b }) { Text("Przywróć ostatnią kopię postępów") }
+            }
+            restoreMessage?.let { Text(it, color = MaterialTheme.colorScheme.primary) }
             content.loadIssues.take(10).forEach { Text("⚠ $it", style = MaterialTheme.typography.bodySmall) }
 
             SectionTitle("O aplikacji")
@@ -213,13 +247,43 @@ fun SettingsScreen(container: AppContainer, outerPadding: PaddingValues) {
             text = {
                 Column(Modifier.verticalScroll(rememberScrollState())) {
                     r.error?.let { Text(it, color = MaterialTheme.colorScheme.error) }
-                    if (r.error == null) Text("Pozycje: ${r.imported}, zastąpione istniejące: ${r.replaced}")
+                    if (r.error == null) {
+                        Text("Poprawne pozycje: ${r.imported}")
+                        Text("Nowe: ${r.added.size} · zmienione: ${r.updated.size} · bez zmian: ${r.unchanged}")
+                        Text("Postępy zachowane dla ${r.progressKept} pozycji z paczki.")
+                        r.backupFile?.let { Text("Kopia postępów przed importem: $it", style = MaterialTheme.typography.bodySmall) }
+                        if (r.added.isNotEmpty()) Text("Dodane:", fontWeight = FontWeight.SemiBold)
+                        r.added.take(40).forEach { Text("• ${it.group.code}: ${displayTitle(it.title)}", style = MaterialTheme.typography.bodySmall) }
+                        if (r.updated.isNotEmpty()) Text("Zmienione (wznowienie lekcji od początku):", fontWeight = FontWeight.SemiBold)
+                        r.updated.take(40).forEach { Text("• ${it.group.code}: ${displayTitle(it.title)}", style = MaterialTheme.typography.bodySmall) }
+                        Text("Status treści: wymaga weryfikacji – import nie potwierdza zgodności z przepisami.", style = MaterialTheme.typography.bodySmall)
+                    }
                     r.migratedFrom?.let { Text("Zmigrowano ze schematu v$it do aktualnego.") }
                     if (r.issues.isNotEmpty()) Text("Pominięte/uwagi (${r.issues.size}):", fontWeight = FontWeight.SemiBold)
                     r.issues.take(30).forEach { Text("• $it", style = MaterialTheme.typography.bodySmall) }
                 }
             },
             confirmButton = { TextButton(onClick = { report = null }) { Text("OK") } },
+        )
+    }
+
+    confirmRestore?.let { b ->
+        AlertDialog(
+            onDismissRequest = { confirmRestore = null },
+            title = { Text("Przywrócić kopię postępów?") },
+            text = { Text("Obecne postępy zostaną zastąpione kopią „${b.reason}” (${b.itemCount} pozycji). Przed przywróceniem zostanie zapisana kopia bieżącego stanu.") },
+            confirmButton = {
+                TextButton(onClick = {
+                    confirmRestore = null
+                    scope.launch {
+                        container.progressBackup.create("przed przywróceniem kopii")
+                        val n = container.progressBackup.restore(b.file)
+                        restoreMessage = "Przywrócono postępy: $n pozycji."
+                        backups = container.progressBackup.list()
+                    }
+                }) { Text("Przywróć") }
+            },
+            dismissButton = { TextButton(onClick = { confirmRestore = null }) { Text("Anuluj") } },
         )
     }
 }

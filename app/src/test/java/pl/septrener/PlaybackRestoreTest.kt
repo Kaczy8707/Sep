@@ -60,7 +60,7 @@ class PlaybackRestoreTest {
         assertEquals(false, queue.playing)
         assertEquals(0, engine.queued.size)
         queue.play()
-        assertEquals(restored.tracks[4].segments[2].text, engine.queued.first().text)
+        assertEquals(restored.tracks[4].segments[2].spoken, engine.queued.first().text)
     }
 
     @Test

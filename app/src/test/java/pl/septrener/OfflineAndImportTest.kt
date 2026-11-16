@@ -36,7 +36,7 @@ class OfflineAndImportTest {
         val repo = ContentRepository(ctx)
         val s = repo.ensureLoaded()
         assertTrue(s.loadIssues.toString(), s.loadIssues.isEmpty())
-        assertEquals(11, s.lessons(Group.G1).size)
+        assertEquals(21, s.lessons(Group.G1).size)
         assertEquals(10, s.lessons(Group.G2).size)
         assertEquals(10, s.lessons(Group.G3).size)
         assertEquals(32, s.questions(Group.G1).size)

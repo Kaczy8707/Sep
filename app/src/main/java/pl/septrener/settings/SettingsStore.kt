@@ -26,6 +26,8 @@ data class AppSettings(
     val usePackPause: Boolean = false,
     val autoAdvanceLessons: Boolean = true,
     val notificationsAsked: Boolean = false,
+    /** Czytaj symbole i skróty słownie (Ω → om, ≤ → mniejsze lub równe, RCD → er ce de). */
+    val speakSymbols: Boolean = true,
 ) {
     val ttsConfig get() = TtsConfig(speechRate, pitch, voiceName, enginePackage)
     val examTiming get() = ExamTiming(examPauseSeconds, usePackPause)
@@ -48,6 +50,7 @@ class SettingsStore(private val store: DataStore<Preferences>) {
         val packPause = booleanPreferencesKey("use_pack_pause")
         val autoAdvance = booleanPreferencesKey("auto_advance_lessons")
         val notifAsked = booleanPreferencesKey("notifications_asked")
+        val speakSymbols = booleanPreferencesKey("speak_symbols")
     }
 
     val settings: Flow<AppSettings> = store.data.map { p ->
@@ -60,6 +63,7 @@ class SettingsStore(private val store: DataStore<Preferences>) {
             usePackPause = p[K.packPause] ?: false,
             autoAdvanceLessons = p[K.autoAdvance] ?: true,
             notificationsAsked = p[K.notifAsked] ?: false,
+            speakSymbols = p[K.speakSymbols] ?: true,
         )
     }
 
@@ -73,5 +77,6 @@ class SettingsStore(private val store: DataStore<Preferences>) {
     suspend fun setExamPause(seconds: Int) = store.edit { it[K.pause] = seconds.coerceIn(ExamTiming.MIN_PAUSE_SECONDS, ExamTiming.MAX_PAUSE_SECONDS) }
     suspend fun setUsePackPause(v: Boolean) = store.edit { it[K.packPause] = v }
     suspend fun setAutoAdvance(v: Boolean) = store.edit { it[K.autoAdvance] = v }
+    suspend fun setSpeakSymbols(v: Boolean) = store.edit { it[K.speakSymbols] = v }
     suspend fun setNotificationsAsked() = store.edit { it[K.notifAsked] = true }
 }

@@ -108,7 +108,7 @@ class SpeechQueue(
         for (i in segmentIndex until track.segments.size) {
             val seg = track.segments[i]
             val id = "$generation:$trackIndex:$i"
-            val ok = if (seg.isSilence) engine.silence(seg.durationMs, id) else engine.speak(seg.text, id)
+            val ok = if (seg.isSilence) engine.silence(seg.durationMs, id) else engine.speak(seg.spoken, id)
             if (!ok) { fail("Syntezator odrzucił fragment ${i + 1}."); return }
         }
     }

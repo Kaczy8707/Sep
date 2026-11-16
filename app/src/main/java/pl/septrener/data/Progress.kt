@@ -6,10 +6,13 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.Query
 import androidx.room.RoomDatabase
+import androidx.room.Transaction
 import androidx.room.Upsert
 import kotlinx.coroutines.flow.Flow
+import kotlinx.serialization.Serializable
 
 /** Postęp nauki dla pojedynczej lekcji lub pytania. Przechowywany lokalnie (Room), bez konta. */
+@Serializable
 @Entity(tableName = "progress")
 data class ItemProgress(
     @PrimaryKey val itemId: String,
@@ -34,11 +37,24 @@ interface ProgressDao {
     @Query("SELECT * FROM progress")
     fun observeAll(): Flow<List<ItemProgress>>
 
+    @Query("SELECT * FROM progress")
+    suspend fun getAll(): List<ItemProgress>
+
     @Query("SELECT * FROM progress WHERE itemId = :id")
     suspend fun get(id: String): ItemProgress?
 
     @Upsert
     suspend fun upsert(progress: ItemProgress)
+
+    @Upsert
+    suspend fun upsertAll(progress: List<ItemProgress>)
+
+    /** Zastępuje całą tabelę zawartością kopii (atomowo). */
+    @Transaction
+    suspend fun replaceAll(progress: List<ItemProgress>) {
+        deleteAll()
+        upsertAll(progress)
+    }
 
     @Query("DELETE FROM progress")
     suspend fun deleteAll()

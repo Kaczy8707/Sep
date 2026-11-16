@@ -4,10 +4,15 @@ import pl.septrener.content.ContentItem
 import pl.septrener.content.ContentState
 import pl.septrener.content.Group
 import pl.septrener.tts.TextChunker
+import pl.septrener.tts.TtsNormalizer
 
 enum class SegmentKind { LESSON_TEXT, QUESTION, PAUSE, ANSWER, GAP }
 
-data class Segment(val kind: SegmentKind, val text: String = "", val durationMs: Long = 0) {
+/**
+ * @param text tekst wyświetlany na ekranie,
+ * @param spoken tekst wysyłany do syntezatora (po zamianie symboli i skrótów); domyślnie = [text].
+ */
+data class Segment(val kind: SegmentKind, val text: String = "", val durationMs: Long = 0, val spoken: String = text) {
     val isSilence get() = kind == SegmentKind.PAUSE || kind == SegmentKind.GAP
 }
 
@@ -58,33 +63,45 @@ data class ExamTiming(
     }
 }
 
-/** Buduje ścieżki odtwarzania z pozycji treści. Ten sam podział jest używany do wyświetlania tekstu. */
+/**
+ * Buduje ścieżki odtwarzania z pozycji treści. Ten sam podział jest używany do wyświetlania tekstu.
+ *
+ * Fragmenty wyświetlane mają co najwyżej [chunkLimit] znaków (1/3 limitu silnika), aby tekst po rozwinięciu
+ * symboli przez [TtsNormalizer] nadal mieścił się w `getMaxSpeechInputLength()`.
+ */
 class TrackFactory(private val maxInputLength: Int, private val preferredLength: Int = TextChunker.DEFAULT_PREFERRED) {
+    val chunkLimit: Int = (maxInputLength / 3).coerceAtLeast(20)
 
-    fun lessonSegments(item: ContentItem): List<Segment> =
-        TextChunker.chunk(item.content, maxInputLength, preferredLength).map { Segment(SegmentKind.LESSON_TEXT, it) }
+    private fun segments(kind: SegmentKind, text: String, normalize: Boolean): List<Segment> =
+        TextChunker.chunk(text, chunkLimit, preferredLength).map { chunk ->
+            val spoken = if (normalize) TtsNormalizer.normalize(chunk).takeIf { it.isNotBlank() && it.length <= maxInputLength } ?: chunk else chunk
+            Segment(kind, chunk, spoken = spoken)
+        }
 
-    fun lesson(item: ContentItem) = Track(
+    fun lessonSegments(item: ContentItem, normalize: Boolean = true): List<Segment> =
+        segments(SegmentKind.LESSON_TEXT, item.content, normalize)
+
+    fun lesson(item: ContentItem, normalize: Boolean = true) = Track(
         mediaId = MediaIds.lesson(item.id), itemId = item.id, kind = TrackKind.LESSON,
-        group = item.group, title = item.title, segments = lessonSegments(item),
+        group = item.group, title = item.title, segments = lessonSegments(item, normalize),
     )
 
-    fun examQuestion(item: ContentItem, timing: ExamTiming): Track {
+    fun examQuestion(item: ContentItem, timing: ExamTiming, normalize: Boolean = true): Track {
         val segments = buildList {
-            TextChunker.chunk("Pytanie. ${item.question}", maxInputLength, preferredLength).forEach { add(Segment(SegmentKind.QUESTION, it)) }
+            addAll(segments(SegmentKind.QUESTION, "Pytanie. ${item.question}", normalize))
             add(Segment(SegmentKind.PAUSE, durationMs = timing.pauseMsFor(item)))
-            TextChunker.chunk("Odpowiedź. ${item.answer}", maxInputLength, preferredLength).forEach { add(Segment(SegmentKind.ANSWER, it)) }
+            addAll(segments(SegmentKind.ANSWER, "Odpowiedź. ${item.answer}", normalize))
             if (timing.gapMs > 0) add(Segment(SegmentKind.GAP, durationMs = timing.gapMs))
         }
         return Track(MediaIds.exam(item.id), item.id, TrackKind.EXAM_QUESTION, item.group, item.title, segments)
     }
 
-    fun forMediaId(mediaId: String, content: ContentState, timing: ExamTiming): Track? {
+    fun forMediaId(mediaId: String, content: ContentState, timing: ExamTiming, normalize: Boolean = true): Track? {
         val (kind, id) = MediaIds.parse(mediaId) ?: return null
         val item = content.item(id) ?: return null
         return when (kind) {
-            TrackKind.LESSON -> if (item.isLesson) lesson(item) else null
-            TrackKind.EXAM_QUESTION -> if (item.isQuestion) examQuestion(item, timing) else null
+            TrackKind.LESSON -> if (item.isLesson) lesson(item, normalize) else null
+            TrackKind.EXAM_QUESTION -> if (item.isQuestion) examQuestion(item, timing, normalize) else null
         }
     }
 }
