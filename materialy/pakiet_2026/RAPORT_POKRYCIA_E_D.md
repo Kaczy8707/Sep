@@ -112,6 +112,6 @@ Wyszukiwanie w treści (207 rekordów) nie znalazło lub znalazło tylko margina
 ## 6. Propozycja audytu przez specjalistę
 1. Porównanie zakresów punktów G1 2/6/8/10, G2 1/2/4/5/7/9/10, G3 6/8/10 z aktualnym załącznikiem Dz.U. 2022 poz. 1392 i uzupełnienie kolumny „nazwa punktu” w sekcji 3.
 2. Przegląd każdej lekcji i pytania przez osobę z kwalifikacjami D w danej grupie, z aktualnymi przepisami BHP i normami (PN-HD 60364, PN-EN 50110-1, normy instalacji gazowych i ciśnieniowych właściwe dla zakresu).
-3. Decyzja o oznaczeniu E/D dla 66 pytań i 41 lekcji bez oznaczenia.
+3. Decyzja o oznaczeniu E/D dla 66 pytań bez oznaczenia oraz wszystkich 59 lekcji (żadna lekcja nie ma pola `scope`; nowe lekcje rozdzielają E/D tylko w tekście).
 4. Po audycie – ustawienie `verified: true` **w paczce**, z polem `source` wskazującym akt/normę i datę przeglądu; aplikacja pokaże status automatycznie.
 5. Opracowanie tematów z sekcji 4 jako nowe paczki (ten sam format, nowe `id`), z treścią opartą na dokumentach źródłowych, bez wymyślonych wartości granicznych.
