@@ -80,10 +80,16 @@ fun QuestionScreen(
     questionId: String,
     gate: (() -> Unit) -> Unit,
     onBack: () -> Unit,
+    onOpenLesson: (String) -> Unit,
     outerPadding: PaddingValues,
 ) {
     val content by container.content.state.collectAsStateWithLifecycle()
+    val progressMap by container.progress.all.collectAsStateWithLifecycle(emptyMap())
     val item = content.item(questionId)
+    var history by remember { mutableStateOf(emptyList<pl.septrener.data.AnswerLogEntry>()) }
+    androidx.compose.runtime.LaunchedEffect(questionId, progressMap[questionId]) {
+        history = container.progress.history(questionId)
+    }
     ScreenScaffold("Pytanie ustne", outerPadding, onBack) { inner ->
         Column(Modifier.padding(inner).verticalScroll(rememberScrollState()).padding(16.dp)) {
             if (item == null) { Text("Nie znaleziono pytania."); return@Column }
@@ -94,6 +100,23 @@ fun QuestionScreen(
             Text(item.answer, style = MaterialTheme.typography.bodyLarge)
             Button(onClick = { gate { container.connection.playItems(listOf(MediaIds.exam(item.id))) } }, modifier = Modifier.padding(top = 16.dp)) {
                 Text("Odsłuchaj (pytanie → pauza → odpowiedź)")
+            }
+            item.sourceLessonId?.let { content.item(it) }?.let { lesson ->
+                androidx.compose.material3.TextButton(onClick = { onOpenLesson(lesson.id) }, modifier = Modifier.padding(top = 8.dp)) {
+                    Text("Powiązana lekcja: ${displayTitle(lesson.title)}")
+                }
+            }
+            val p = progressMap[item.id]
+            Text("Historia odpowiedzi", style = MaterialTheme.typography.labelLarge, modifier = Modifier.padding(top = 16.dp))
+            if (p == null) Text("Jeszcze nie odpowiadano.", style = MaterialTheme.typography.bodySmall)
+            else Text(
+                "Umiem ${p.knownCount} · częściowo ${p.partialCount} · do powtórki ${p.hardCount} · następna powtórka: " +
+                    (p.nextDueAt?.let { java.text.DateFormat.getDateInstance().format(java.util.Date(it)) } ?: "—"),
+                style = MaterialTheme.typography.bodySmall,
+            )
+            val df = java.text.DateFormat.getDateTimeInstance(java.text.DateFormat.SHORT, java.text.DateFormat.SHORT)
+            history.forEach { h ->
+                Text("• ${df.format(java.util.Date(h.answeredAt))} – ${pl.septrener.data.Grade.fromCode(h.grade).label} (${h.mode})", style = MaterialTheme.typography.bodySmall)
             }
         }
     }

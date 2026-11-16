@@ -10,6 +10,7 @@ import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import pl.septrener.playback.ExamTiming
 import pl.septrener.tts.TtsConfig
@@ -51,6 +52,7 @@ class SettingsStore(private val store: DataStore<Preferences>) {
         val autoAdvance = booleanPreferencesKey("auto_advance_lessons")
         val notifAsked = booleanPreferencesKey("notifications_asked")
         val speakSymbols = booleanPreferencesKey("speak_symbols")
+        val contentSignature = stringPreferencesKey("content_signature")
     }
 
     val settings: Flow<AppSettings> = store.data.map { p ->
@@ -77,6 +79,8 @@ class SettingsStore(private val store: DataStore<Preferences>) {
     suspend fun setExamPause(seconds: Int) = store.edit { it[K.pause] = seconds.coerceIn(ExamTiming.MIN_PAUSE_SECONDS, ExamTiming.MAX_PAUSE_SECONDS) }
     suspend fun setUsePackPause(v: Boolean) = store.edit { it[K.packPause] = v }
     suspend fun setAutoAdvance(v: Boolean) = store.edit { it[K.autoAdvance] = v }
+    suspend fun contentSignature(): String? = store.data.first()[K.contentSignature]
+    suspend fun setContentSignature(v: String) = store.edit { it[K.contentSignature] = v }
     suspend fun setSpeakSymbols(v: Boolean) = store.edit { it[K.speakSymbols] = v }
     suspend fun setNotificationsAsked() = store.edit { it[K.notifAsked] = true }
 }

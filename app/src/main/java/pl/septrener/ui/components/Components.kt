@@ -95,7 +95,12 @@ fun ItemBadges(item: ContentItem) {
     FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
         Badge(item.group.code)
         Badge(if (item.verified) "Oznaczone w paczce jako zweryfikowane" else "Wymaga weryfikacji", warning = !item.verified)
-        Badge("Zakres: ${item.scope.label}", warning = item.scope == pl.septrener.content.Scope.UNKNOWN)
+        Badge(
+            if (item.scope == pl.septrener.content.Scope.UNKNOWN) "Zakres: ${item.scope.label}" else "Zakres (propozycja redakcyjna): ${item.scope.label}",
+            warning = item.scope == pl.septrener.content.Scope.UNKNOWN,
+        )
+        if (item.isScenario) Badge("Scenariusz sytuacyjny")
+        Badge("Treść pomocnicza")
     }
 }
 

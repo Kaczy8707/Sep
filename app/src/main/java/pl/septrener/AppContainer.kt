@@ -52,8 +52,25 @@ class AppContainer(val app: Application) {
     val playback: StateFlow<PlaybackUiState> = _playback.asStateFlow()
     fun publishPlayback(state: PlaybackUiState) { _playback.value = state }
 
+    /**
+     * Po zmianie wbudowanej treści (nowe APK) zapisuje kopię postępów, zanim użytkownik zacznie z nich korzystać.
+     * Postępy są przypisane do identyfikatorów, więc nowe rekordy ich nie naruszają – kopia jest zabezpieczeniem.
+     */
+    private suspend fun backupOnContentChange() {
+        val state = content.state.value
+        val signature = "${state.items.size}:" + state.items.map { it.id }.sorted().hashCode()
+        val previous = settingsStore.contentSignature()
+        if (previous != null && previous != signature && progress.snapshot().isNotEmpty()) {
+            runCatching { progressBackup.create("przed aktualizacją treści (${state.items.size} pozycji)") }
+        }
+        if (previous != signature) settingsStore.setContentSignature(signature)
+    }
+
     fun start() {
-        appScope.launch { content.reload() }
+        appScope.launch {
+            content.reload()
+            backupOnContentChange()
+        }
         appScope.launch { settingsStore.settings.collect { tts.start(it.ttsConfig) } }
     }
 }

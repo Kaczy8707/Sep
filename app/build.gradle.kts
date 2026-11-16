@@ -47,7 +47,8 @@ android {
         }
     }
     sourceSets {
-        getByName("test").assets.srcDir("$projectDir/schemas")
+        // Schematy Room dla testów migracji (Robolectric czyta assety wariantu debug; release ich nie zawiera).
+        getByName("debug").assets.srcDir("$projectDir/schemas")
     }
 }
 

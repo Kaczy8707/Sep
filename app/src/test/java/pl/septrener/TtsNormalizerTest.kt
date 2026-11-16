@@ -44,6 +44,7 @@ class TtsNormalizerTest {
         assertEquals("przewody pe e i pe e en, mostki en pe e", normalize("przewody PE i PEN, mostki N–PE"))
         assertEquals("er ce be o oraz er ce de", normalize("RCBO oraz RCD"))
         assertEquals("u pe es, pe fau, es pe de", normalize("UPS, PV, SPD"))
+        assertEquals("zasilanie rezerwowe u pe es i agregaty; gaz ziemny i el pe gie", normalize("zasilanie rezerwowe ups i agregaty; gaz ziemny i lpg"))
         // nie rusza słów, które tylko zawierają te litery
         assertEquals("PERSONEL, PEŁNY, Instalacja, Iarząb", normalize("PERSONEL, PEŁNY, Instalacja, Iarząb"))
     }
@@ -105,5 +106,5 @@ class TtsNormalizerTest {
 }
 
 object ContentRepositoryFiles {
-    val all = listOf("G1_lessons.json", "G1_exam.json", "G2_lessons.json", "G2_exam.json", "G3_lessons.json", "G3_exam.json")
+    val all = pl.septrener.content.ContentRepository.BUILT_IN
 }

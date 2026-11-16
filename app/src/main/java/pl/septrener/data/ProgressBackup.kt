@@ -15,6 +15,8 @@ data class ProgressBackupFile(
     val createdAt: Long,
     val reason: String,
     val items: List<ItemProgress>,
+    /** Historia odpowiedzi (od formatu 2; kopie z formatu 1 jej nie mają). */
+    val history: List<AnswerLogEntry>? = null,
 )
 
 data class BackupInfo(val file: File, val createdAt: Long, val reason: String, val itemCount: Int)
@@ -25,11 +27,12 @@ class ProgressBackup(private val progress: ProgressRepository, private val dir: 
 
     suspend fun create(reason: String, now: Long = System.currentTimeMillis()): BackupInfo {
         val items = progress.snapshot()
+        val history = progress.historySnapshot()
         return withContext(Dispatchers.IO) {
             dir.mkdirs()
             val stamp = SimpleDateFormat("yyyyMMdd-HHmmss-SSS", Locale.ROOT).format(Date(now))
             val file = File(dir, "postepy-$stamp.json")
-            file.writeText(json.encodeToString(ProgressBackupFile.serializer(), ProgressBackupFile(createdAt = now, reason = reason, items = items)))
+            file.writeText(json.encodeToString(ProgressBackupFile.serializer(), ProgressBackupFile(formatVersion = 2, createdAt = now, reason = reason, items = items, history = history)))
             list().drop(keep).forEach { it.file.delete() }
             BackupInfo(file, now, reason, items.size)
         }
@@ -43,7 +46,7 @@ class ProgressBackup(private val progress: ProgressRepository, private val dir: 
 
     suspend fun restore(file: File): Int {
         val data = withContext(Dispatchers.IO) { read(file) }
-        progress.replaceAll(data.items)
+        progress.replaceAll(data.items, data.history)
         return data.items.size
     }
 

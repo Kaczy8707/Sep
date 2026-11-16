@@ -22,6 +22,7 @@ data class ContentState(
     fun item(id: String): ContentItem? = byId[id]
     fun lessons(group: Group) = items.filter { it.isLesson && it.group == group }
     fun questions(group: Group?) = items.filter { it.isQuestion && (group == null || it.group == group) }
+    fun questionsForLesson(lessonId: String) = items.filter { it.isQuestion && it.sourceLessonId == lessonId }
 }
 
 data class ImportReport(
@@ -47,7 +48,8 @@ data class ImportReport(
 )
 
 /** Treść wbudowana (assets/content) + paczki zaimportowane przez użytkownika (files/packs). Działa w pełni offline. */
-private fun ContentItem.sameContent(other: ContentItem) = copy(origin = "") == other.copy(origin = "")
+private fun ContentItem.sameContent(other: ContentItem) =
+    copy(origin = "", isScenario = false) == other.copy(origin = "", isScenario = false)
 
 class ContentRepository(private val context: Context, private val builtIn: List<String> = BUILT_IN) {
     private val _state = MutableStateFlow(ContentState())
@@ -80,6 +82,20 @@ class ContentRepository(private val context: Context, private val builtIn: List<
                     .onSuccess { r -> r.items.forEach { merged[it.id] = it } }
                     .onFailure { issues += "${file.name} – ${it.message}" }
             }
+            // redakcyjna lista scenariuszy awaryjnych
+            runCatching {
+                val text = context.assets.open("content/$SCENARIOS").bufferedReader().use { it.readText() }
+                ScenarioList.parse(text)
+            }.onSuccess { ids ->
+                ids.forEach { id ->
+                    val item = merged[id]
+                    if (item?.isQuestion == true) merged[id] = item.copy(isScenario = true)
+                    else if (builtIn == BUILT_IN) issues += "$SCENARIOS – „$id” nie jest pytaniem w bazie"
+                }
+            }.onFailure { if (it !is java.io.FileNotFoundException) issues += "$SCENARIOS – ${it.message}" }
+            // odwołania pytań do lekcji
+            merged.values.filter { it.sourceLessonId != null && merged[it.sourceLessonId]?.isLesson != true }
+                .forEach { issues += "${it.id} – sourceLessonId „${it.sourceLessonId}” nie wskazuje istniejącej lekcji" }
             _state.value = ContentState(true, merged.values.toList(), packs.map { it.name }, issues)
         }
     }
@@ -141,10 +157,13 @@ class ContentRepository(private val context: Context, private val builtIn: List<
     companion object {
         private const val TAG = "ContentRepository"
         private const val MAX_IMPORT_BYTES = 5 * 1024 * 1024
+        const val SCENARIOS = "scenarios.json"
+        const val SOURCES = "sources.json"
+        /** Kolejność ma znaczenie: kolejne paczki dopisują rekordy (nowe id) za wcześniejszymi. */
         val BUILT_IN = listOf(
-            "G1_lessons.json", "G1_exam.json",
-            "G2_lessons.json", "G2_exam.json",
-            "G3_lessons.json", "G3_exam.json",
+            "G1_lessons.json", "G1_lessons_2026.json", "G1_exam.json", "G1_exam_2026.json",
+            "G2_lessons.json", "G2_lessons_2026.json", "G2_exam.json", "G2_exam_2026.json",
+            "G3_lessons.json", "G3_lessons_2026.json", "G3_exam.json", "G3_exam_2026.json",
         )
     }
 }

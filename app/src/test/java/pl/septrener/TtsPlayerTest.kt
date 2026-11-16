@@ -30,7 +30,7 @@ class TtsPlayerTest {
     private val container = AppContainer(app)
 
     private fun idle() {
-        repeat(20) {
+        repeat(60) {
             shadowOf(Looper.getMainLooper()).idle()
             Thread.sleep(20)
         }
@@ -119,6 +119,25 @@ class TtsPlayerTest {
         idle()
         assertEquals(Player.STATE_ENDED, player.playbackState)
         assertFalse(player.playWhenReady)
+        player.release()
+        idle()
+    }
+
+    /** Egzamin ustny dla nowego pytania z pakietu 2026 (zakres D): pytanie → pauza 8 s → odpowiedź → koniec. */
+    @Test
+    fun extendedPackQuestionPlaysWithPause() {
+        val engine = FakeSpeechEngine()
+        val player = TtsPlayer(app, container, engine)
+        idle()
+        player.setMediaItems(listOf(MediaItem.Builder().setMediaId(MediaIds.exam("g3-question-ext-046")).build()))
+        player.play()
+        idle()
+        assertEquals(listOf(null, 8_000L, null, 1_200L), engine.queued.map { it.silenceMs })
+        assertTrue(engine.queued[0].text!!.startsWith("Pytanie. Jakie obowiązki dozoru"))
+        assertTrue(engine.queued[2].text!!.startsWith("Odpowiedź. D odpowiada za plan awaryjny"))
+        repeat(4) { engine.playNext() }
+        idle()
+        assertEquals(Player.STATE_ENDED, player.playbackState)
         player.release()
         idle()
     }

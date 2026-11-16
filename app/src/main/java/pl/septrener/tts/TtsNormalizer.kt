@@ -41,6 +41,8 @@ object TtsNormalizer {
         "Pstrat" to "P strat", "m_dot" to "m z kropką", "c_p" to "c pe",
     )
 
+    private val lowercaseAcronyms = mapOf("ups" to "u pe es", "lpg" to "el pe gie", "rcd" to "er ce de")
+
     private val capsWords = mapOf("LEKCJA" to "Lekcja", "TEST" to "test", "LOTO" to "loto", "EGZAMINATOR" to "egzaminator", "LEKTOR" to "lektor")
 
     private val numberUnit = Regex("(\\d+(?:[.,]\\d+)?)\\s*(MΩ|kΩ|mΩ|Ω|mm²)")
@@ -79,6 +81,8 @@ object TtsNormalizer {
         s = Regex("\\b([A-Z]+)–([A-Z]+)\\b").replace(s) { "${letter(it.groupValues[1])} ${letter(it.groupValues[2])}" }
         symbols.forEach { (k, v) -> s = Regex("(?<![\\p{L}\\d_])${Regex.escape(k)}(?![\\p{L}\\d_])").replace(s, v) }
         ACRONYMS.forEach { (k, v) -> s = Regex("(?<![\\p{L}\\d-])${Regex.escape(k)}(?![\\p{L}\\d]|-[A-Z])").replace(s, v) }
+        // skróty zapisane w paczce małymi literami (np. „zasilanie rezerwowe ups”, „gaz ziemny i lpg”)
+        lowercaseAcronyms.forEach { (k, v) -> s = Regex("(?<![\\p{L}\\d])$k(?![\\p{L}\\d])").replace(s, v) }
         s = s.replace("_", " ")
         return s.lines().joinToString("\n") { whitespace.replace(it, " ").trim() }
     }

@@ -59,7 +59,13 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import pl.septrener.AppContainer
 import pl.septrener.content.Group
-import pl.septrener.data.Srs
+import pl.septrener.content.Scope
+import pl.septrener.data.Grade
+import pl.septrener.exam.ExamSelection
+import pl.septrener.exam.QuestionPool
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.material.icons.filled.Remove
 import pl.septrener.exam.ExamConfig
 import pl.septrener.exam.ExamViewModel
 import pl.septrener.playback.MediaIds
@@ -71,6 +77,7 @@ import pl.septrener.ui.components.ScreenScaffold
 import pl.septrener.ui.components.SectionTitle
 import pl.septrener.ui.components.TtsStatusBanner
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun ExamSetupScreen(
     container: AppContainer,
@@ -85,13 +92,19 @@ fun ExamSetupScreen(
     val settings by container.settings.collectAsStateWithLifecycle()
     val ttsStatus by container.tts.status.collectAsStateWithLifecycle()
     var groupCode by rememberSaveable { mutableStateOf<String?>(null) }
-    var dueOnly by rememberSaveable { mutableStateOf(false) }
+    var scopeName by rememberSaveable { mutableStateOf<String?>(null) }
+    var poolName by rememberSaveable { mutableStateOf(QuestionPool.ALL.name) }
+    var scenarios by rememberSaveable { mutableStateOf(false) }
     var shuffle by rememberSaveable { mutableStateOf(true) }
     var pause by remember(settings.examPauseSeconds) { mutableFloatStateOf(settings.examPauseSeconds.toFloat()) }
     val scope = rememberCoroutineScope()
     val group = groupCode?.let { Group.fromCode(it) }
+    val edScope = scopeName?.let { Scope.valueOf(it) }
+    val pool = QuestionPool.valueOf(poolName)
     val now = remember { System.currentTimeMillis() }
-    val questions = content.questions(group).filter { !dueOnly || Srs.isDue(progress[it.id], now) }
+    fun config(oral: Boolean) = ExamConfig(group, edScope, pool, shuffle, oral, scenarios)
+    val questions = ExamSelection.select(content.items, progress, config(true), now)
+    val unscoped = content.questions(group).count { it.scope == Scope.UNKNOWN }
 
     ScreenScaffold("Egzamin ustny", outerPadding) { inner ->
         Column(
@@ -101,12 +114,28 @@ fun ExamSetupScreen(
             DisclaimerCard(extra = NOT_OFFICIAL)
             TtsStatusBanner(ttsStatus, onOpenSettings)
             SectionTitle("Grupa")
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 FilterChip(selected = group == null, onClick = { groupCode = null }, label = { Text("Wszystkie") })
                 Group.entries.forEach { g -> FilterChip(selected = group == g, onClick = { groupCode = g.code }, label = { Text(g.code) }) }
             }
+            SectionTitle("Zakres")
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                FilterChip(selected = edScope == null, onClick = { scopeName = null }, label = { Text("E i D – wszystkie") })
+                FilterChip(selected = edScope == Scope.E, onClick = { scopeName = Scope.E.name }, label = { Text("E – eksploatacja") })
+                FilterChip(selected = edScope == Scope.D, onClick = { scopeName = Scope.D.name }, label = { Text("D – dozór") })
+            }
+            Text(
+                "Oznaczenie E/D jest propozycją redakcyjną z paczki, nie oficjalną kwalifikacją. Filtr E lub D obejmuje też pytania „E i D”. " +
+                    "Pytania bez oznaczenia ($unscoped w wybranej grupie) są dostępne tylko w opcji „wszystkie”.",
+                style = MaterialTheme.typography.bodySmall,
+            )
+            SectionTitle("Pytania")
+            FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                QuestionPool.entries.forEach { p -> FilterChip(selected = pool == p, onClick = { poolName = p.name }, label = { Text(p.label) }) }
+            }
+            if (pool == QuestionPool.ERRORS) Text("Pytania ocenione ostatnio „Powtórz” lub „Częściowo” (jeszcze nieopanowane).", style = MaterialTheme.typography.bodySmall)
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text("Tylko do powtórki (wg harmonogramu)", Modifier.weight(1f)); Switch(dueOnly, { dueOnly = it })
+                Text("Tylko scenariusze awaryjne („Co zrobiłbyś…?”)", Modifier.weight(1f)); Switch(scenarios, { scenarios = it })
             }
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Text("Losowa kolejność", Modifier.weight(1f)); Switch(shuffle, { shuffle = it })
@@ -119,13 +148,13 @@ fun ExamSetupScreen(
             Text("Liczba pytań: ${questions.size}", fontWeight = FontWeight.SemiBold)
 
             Button(
-                onClick = { gate { onStart(ExamConfig(group, dueOnly, shuffle, oral = true)) } },
+                onClick = { gate { onStart(config(true)) } },
                 enabled = questions.isNotEmpty(), modifier = Modifier.fillMaxWidth().heightIn(min = 60.dp),
-            ) { Icon(Icons.Filled.RecordVoiceOver, null); Spacer(Modifier.width(8.dp)); Text("Egzamin ustny z lektorem") }
-            Text("Lektor czyta pytanie → odliczanie pauzy → lektor czyta odpowiedź. Oceniasz się przyciskami „Umiem” / „Powtórz”.", style = MaterialTheme.typography.bodySmall)
+            ) { Icon(Icons.Filled.RecordVoiceOver, null); Spacer(Modifier.width(8.dp)); Text(if (scenarios) "Scenariusze z lektorem" else "Egzamin ustny z lektorem") }
+            Text("Lektor czyta pytanie → odliczanie pauzy → lektor czyta odpowiedź. Oceniasz się: „Umiem”, „Częściowo”, „Powtórz”.", style = MaterialTheme.typography.bodySmall)
 
             OutlinedButton(
-                onClick = { onStart(ExamConfig(group, dueOnly, shuffle, oral = false)) },
+                onClick = { onStart(config(false)) },
                 enabled = questions.isNotEmpty(), modifier = Modifier.fillMaxWidth().heightIn(min = 60.dp),
             ) { Icon(Icons.Filled.Quiz, null); Spacer(Modifier.width(8.dp)); Text("Cichy quiz (bez dźwięku)") }
 
@@ -148,14 +177,21 @@ fun ExamSessionScreen(
     onOpenSettings: () -> Unit,
     outerPadding: PaddingValues,
 ) {
-    val key = "exam-${config.group}-${config.dueOnly}-${config.shuffle}-${config.oral}"
+    val key = "exam-$config"
     val vm: ExamViewModel = viewModel(key = key, factory = viewModelFactory { initializer { ExamViewModel(container, config) } })
     val ui by vm.ui.collectAsStateWithLifecycle()
     val playback by container.playback.collectAsStateWithLifecycle()
     val ttsStatus by container.tts.status.collectAsStateWithLifecycle()
     val item = ui.current
 
-    ScreenScaffold(if (config.oral) "Egzamin ustny" else "Cichy quiz", outerPadding, onBack) { inner ->
+    ScreenScaffold(
+        when {
+            config.scenarios -> "Scenariusze awaryjne"
+            config.oral -> "Egzamin ustny"
+            else -> "Cichy quiz"
+        },
+        outerPadding, onBack,
+    ) { inner ->
         Column(
             Modifier.padding(inner).fillMaxSize().verticalScroll(rememberScrollState()).padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
@@ -166,12 +202,12 @@ fun ExamSessionScreen(
                 progress = { (ui.total - ui.remaining).toFloat() / ui.total.coerceAtLeast(1) },
                 modifier = Modifier.fillMaxWidth(),
             )
-            Text("Pozostało: ${ui.remaining} · Umiem: ${ui.known} · Do powtórki: ${ui.hard}", style = MaterialTheme.typography.bodyMedium)
+            Text("Pozostało: ${ui.remaining} · Umiem: ${ui.known} · Częściowo: ${ui.partial} · Do powtórki: ${ui.hard}", style = MaterialTheme.typography.bodyMedium)
             if (ui.finished || item == null) {
                 Card(Modifier.fillMaxWidth()) {
                     Column(Modifier.padding(16.dp)) {
                         Text("Koniec sesji", style = MaterialTheme.typography.headlineSmall)
-                        Text("Oceny: umiem ${ui.known}, do powtórki ${ui.hard}. Wyniki zapisano w postępach.")
+                        Text("Oceny: umiem ${ui.known}, częściowo ${ui.partial}, do powtórki ${ui.hard}. Wyniki i historię zapisano w postępach.")
                         Button(onClick = onBack, Modifier.padding(top = 12.dp)) { Text("Wróć") }
                     }
                 }
@@ -188,7 +224,7 @@ fun ExamSessionScreen(
 
             Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer)) {
                 Column(Modifier.padding(16.dp)) {
-                    Text("Pytanie", style = MaterialTheme.typography.labelLarge)
+                    Text(if (config.scenarios || item.isScenario) "Co zrobiłbyś w tej sytuacji?" else "Pytanie", style = MaterialTheme.typography.labelLarge)
                     Text(item.question, style = MaterialTheme.typography.headlineSmall)
                 }
             }
@@ -229,16 +265,22 @@ fun ExamSessionScreen(
                     Icon(Icons.Filled.Visibility, null); Spacer(Modifier.width(8.dp)); Text("Pokaż odpowiedź")
                 }
             } else {
-                Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                    Button(onClick = { vm.grade(true) }, modifier = Modifier.weight(1f).heightIn(min = 64.dp)) {
-                        Icon(Icons.Filled.Check, null); Spacer(Modifier.width(8.dp)); Text("Umiem")
-                    }
-                    Button(
-                        onClick = { vm.grade(false) }, modifier = Modifier.weight(1f).heightIn(min = 64.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary),
-                    ) { Icon(Icons.Filled.Replay, null); Spacer(Modifier.width(8.dp)); Text("Powtórz") }
+                Text(
+                    if (config.scenarios || item.isScenario) "Porównaj swoje działania z odpowiedzią: kolejność, bezpieczeństwo własne, alarmowanie, odpowiedzialność E/D."
+                    else "Oceń swoją odpowiedź:",
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+                Button(onClick = { vm.grade(Grade.KNOWN) }, modifier = Modifier.fillMaxWidth().heightIn(min = 60.dp)) {
+                    Icon(Icons.Filled.Check, null); Spacer(Modifier.width(8.dp)); Text("Umiem")
                 }
-                Text("„Powtórz” oznacza pytanie jako trudne: wróci jeszcze w tej sesji i w powtórkach.", style = MaterialTheme.typography.bodySmall)
+                OutlinedButton(onClick = { vm.grade(Grade.PARTIAL) }, modifier = Modifier.fillMaxWidth().heightIn(min = 60.dp)) {
+                    Icon(Icons.Filled.Remove, null); Spacer(Modifier.width(8.dp)); Text("Częściowo")
+                }
+                Button(
+                    onClick = { vm.grade(Grade.HARD) }, modifier = Modifier.fillMaxWidth().heightIn(min = 60.dp),
+                    colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.secondary),
+                ) { Icon(Icons.Filled.Replay, null); Spacer(Modifier.width(8.dp)); Text("Powtórz") }
+                Text("„Częściowo” – powtórka jutro. „Powtórz” – pytanie wróci jeszcze w tej sesji i trafi do „Pytań z błędów”.", style = MaterialTheme.typography.bodySmall)
             }
             Row {
                 if (config.oral) TextButton(onClick = vm::playCurrent) { Text("Przeczytaj pytanie ponownie") }

@@ -1,0 +1,28 @@
+{
+  "note": "Wszystkie treści są materiałem pomocniczym (verified=false). Nie są oficjalną bazą pytań komisji egzaminacyjnej.",
+  "packages": [
+    {
+      "name": "Pakiet podstawowy",
+      "files": ["G1_lessons.json (lekcje 01–11)", "G1_exam.json", "G2_lessons.json", "G2_exam.json", "G3_lessons.json", "G3_exam.json"],
+      "description": "Lekcje i pytania wyodrębnione z wcześniejszych skryptów szkoleniowych G1–G3. Pytania G1 (22 pytania i 10 sytuacji dozoru) przeniesione dosłownie z pliku G1_Audiobook_Dialogi_Egzaminacyjne.txt.",
+      "status": "wymaga weryfikacji"
+    },
+    {
+      "name": "Rozbudowa G1",
+      "files": ["G1_lessons.json (lekcje 12–21)"],
+      "description": "10 lekcji G1 dostarczonych w pakiecie SEP_G1_rozbudowa.",
+      "status": "wymaga weryfikacji"
+    },
+    {
+      "name": "Rozszerzenie G1/G2/G3 E i D, edycja 2026-11-16",
+      "files": ["G1_lessons_2026.json", "G1_exam_2026.json", "G2_lessons_2026.json", "G2_exam_2026.json", "G3_lessons_2026.json", "G3_exam_2026.json"],
+      "description": "Lekcje G1 22–27, G2 11–16, G3 11–16 oraz po 24 pytania na grupę z proponowanym oznaczeniem zakresu E/D (oznaczenie redakcyjne, nie oficjalna kwalifikacja). Brak pełnej weryfikacji norm i przepisów szczegółowych.",
+      "status": "materiały pomocnicze, wymagają audytu eksperckiego"
+    }
+  ],
+  "officialSources": [
+    {"title": "Rozporządzenie w sprawie szczegółowych zasad stwierdzania posiadania kwalifikacji (Dz.U. 2022 poz. 1392)", "url": "https://eli.gov.pl/eli/DU/2022/1392/ogl"},
+    {"title": "Dz.U. 2019 poz. 1830", "url": "https://eli.gov.pl/eli/DU/2019/1830/ogl"},
+    {"title": "Dz.U. 2021 poz. 1210 (ISAP)", "url": "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20210001210"}
+  ]
+}

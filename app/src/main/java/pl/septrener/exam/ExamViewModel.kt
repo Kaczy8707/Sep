@@ -10,11 +10,9 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import pl.septrener.AppContainer
 import pl.septrener.content.ContentItem
-import pl.septrener.content.Group
-import pl.septrener.data.Srs
+import pl.septrener.data.Grade
 import pl.septrener.playback.MediaIds
 
-data class ExamConfig(val group: Group?, val dueOnly: Boolean, val shuffle: Boolean, val oral: Boolean)
 
 data class ExamUiState(
     val loading: Boolean = true,
@@ -26,6 +24,7 @@ data class ExamUiState(
     val total: Int = 0,
     val remaining: Int = 0,
     val known: Int = 0,
+    val partial: Int = 0,
     val hard: Int = 0,
 )
 
@@ -40,9 +39,7 @@ class ExamViewModel(private val container: AppContainer, val config: ExamConfig)
             val content = container.content.ensureLoaded()
             val progress = container.progress.all.first()
             val now = System.currentTimeMillis()
-            val ids = content.questions(config.group)
-                .filter { !config.dueOnly || Srs.isDue(progress[it.id], now) }
-                .map { it.id }
+            val ids = ExamSelection.select(content.items, progress, config, now).map { it.id }
             session = ExamSession(ids, shuffle = config.shuffle)
             publish(revealed = false)
             if (config.oral) playCurrent()
@@ -54,7 +51,7 @@ class ExamViewModel(private val container: AppContainer, val config: ExamConfig)
         val item = s.current?.let { container.content.state.value.item(it) }
         _ui.value = ExamUiState(
             loading = false, current = item, revealed = revealed, answering = answering, finished = s.finished,
-            total = s.total, remaining = s.remaining, known = s.knownCount, hard = s.hardCount,
+            total = s.total, remaining = s.remaining, known = s.knownCount, partial = s.partialCount, hard = s.hardCount,
         )
     }
 
@@ -79,12 +76,12 @@ class ExamViewModel(private val container: AppContainer, val config: ExamConfig)
         }
     }
 
-    /** „Umiem” (known=true) lub „Powtórz” (known=false – pytanie wróci w tej sesji i w powtórkach). */
-    fun grade(known: Boolean) {
+    /** „Umiem”, „Częściowo” lub „Powtórz” (pytanie wróci w tej sesji i w powtórkach). Zapisywane z historią. */
+    fun grade(grade: Grade) {
         val s = session ?: return
         val item = _ui.value.current ?: return
-        viewModelScope.launch { container.progress.recordAnswer(item, known) }
-        s.grade(known)
+        viewModelScope.launch { container.progress.recordAnswer(item, grade, config.mode) }
+        s.grade(grade)
         publish(revealed = false)
         if (config.oral) {
             if (s.finished) container.connection.pause() else playCurrent()

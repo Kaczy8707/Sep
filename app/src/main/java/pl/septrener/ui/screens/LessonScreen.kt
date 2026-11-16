@@ -63,6 +63,7 @@ fun LessonScreen(
     onOpenLesson: (String) -> Unit,
     onOpenSettings: () -> Unit,
     outerPadding: PaddingValues,
+    onOpenQuestion: (String) -> Unit = {},
 ) {
     val content by container.content.state.collectAsStateWithLifecycle()
     val progressMap by container.progress.all.collectAsStateWithLifecycle(emptyMap())
@@ -201,6 +202,15 @@ fun LessonScreen(
                     label = "Fragment ${i + 1} z ${segments.size}" + if (isThis && i == currentSegment) (if (playback.playing) " · czytam" else " · tu wznowię") else "",
                     onClick = { if (isThis) gate { container.connection.seekSegment(i, thenPlay = true) } else startAt(i) },
                 )
+            }
+            val related = content.questionsForLesson(lesson.id)
+            if (related.isNotEmpty()) item {
+                Column(Modifier.padding(top = 12.dp)) {
+                    Text("Pytania do tej lekcji (${related.size})", style = MaterialTheme.typography.titleMedium)
+                    related.forEach { q ->
+                        TextButton(onClick = { onOpenQuestion(q.id) }) { Text("${q.scope.let { if (it == pl.septrener.content.Scope.UNKNOWN) "" else "[${it.name.replace("ED", "E/D")}] " }}${q.question}") }
+                    }
+                }
             }
             item { DisclaimerCard(Modifier.padding(top = 12.dp), extra = "W treści zachowano ostrzeżenia BHP. Nie wykonuj prac niebezpiecznych bez wymaganych uprawnień, poleceń i środków ochrony.") }
         }

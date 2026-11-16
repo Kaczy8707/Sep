@@ -1,0 +1,130 @@
+[
+  {
+    "id": "g3-lesson-01",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 1. 1. Gaz: podstawowe pojęcia i zagrożenia.",
+    "content": "LEKCJA 1. 1. Gaz: podstawowe pojęcia i zagrożenia.\n\n\nRodzaje gazów. Gaz ziemny jest zwykle lżejszy od powietrza i składa się głównie z metanu. LPG, np. propan-butan, jest cięższy od powietrza i może gromadzić się przy podłodze. Rozmieszczenie detektorów zależy od rodzaju gazu i warunków pomieszczenia.\n\n\nSpalanie. Do spalania potrzebne są paliwo, utleniacz i źródło zapłonu. Niepełne spalanie może prowadzić do powstania tlenku węgla, który jest bezbarwny, bezwonny i silnie toksyczny. Nawet sprawny detektor gazu palnego nie zastępuje czujnika CO.\n\n\nStrefy zagrożenia wybuchem. Strefy wyznacza się na podstawie analizy możliwości wystąpienia atmosfery wybuchowej. Dobór urządzeń Ex i środków ochrony wynika z oceny ryzyka i dokumentacji; samo posiadanie G3 nie upoważnia do projektowania ani zmiany klasyfikacji stref.\n\n\nPodsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-02",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 2. 2. Budowa instalacji gazowej.",
+    "content": "LEKCJA 2. 2. Budowa instalacji gazowej.\n\n\nElementy. Instalacja obejmuje przewody, armaturę odcinającą, reduktory lub regulatory ciśnienia, filtry, gazomierze, urządzenia odbiorcze i wymagane zabezpieczenia. Schemat pozwala zidentyfikować granice odcięcia i miejsca pomiarów.\n\n\nCiśnienie i redukcja. Reduktor utrzymuje określone ciśnienie za urządzeniem w zakresie jego parametrów. Nieprawidłowa regulacja może spowodować niestabilny płomień lub zadziałanie zabezpieczeń. Wymagane ciśnienia prób i eksploatacji zależą od typu instalacji i właściwych przepisów.\n\n\nMateriały i połączenia. Materiał rur, technika łączenia i sposób prowadzenia instalacji muszą być zgodne z projektem, normami i warunkami. Nie wolno dowolnie zastępować armatury przeznaczonej do gazu elementami wodnymi.\n\n\nPodsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-03",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 3. 3. Urządzenia gazowe i palniki.",
+    "content": "LEKCJA 3. 3. Urządzenia gazowe i palniki.\n\n\nPalniki. Palnik miesza paliwo z powietrzem i utrzymuje kontrolowany proces spalania. Automatyka kontroluje sekwencję przedmuchu, zapłonu, potwierdzenia płomienia i bezpiecznego odcięcia paliwa przy awarii.\n\n\nKontrola płomienia. Czujnik jonizacyjny lub optyczny może potwierdzać obecność płomienia. Brak potwierdzenia w wymaganym czasie powoduje blokadę i odcięcie gazu. Wielokrotne resetowanie bez diagnostyki jest niebezpieczne.\n\n\nSpaliny i wentylacja. Prawidłowe doprowadzenie powietrza i odprowadzenie spalin są niezbędne. Zaburzenie ciągu, niedrożny przewód spalinowy lub niewłaściwa wentylacja mogą prowadzić do zatrucia CO.\n\n\nPodsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-04",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 4. 4. Próby szczelności i kontrola.",
+    "content": "LEKCJA 4. 4. Próby szczelności i kontrola.\n\n\nZasada. Szczelność sprawdza się metodą i przyrządem odpowiednimi dla instalacji, zgodnie z właściwą procedurą i przepisami. Wyniki dokumentuje się z podaniem warunków, medium, czasu, ciśnienia i użytego sprzętu, jeśli wymaga tego procedura.\n\n\nWykrywanie nieszczelności. Można używać właściwych detektorów lub preparatów pianotwórczych dopuszczonych do danego zastosowania. Nigdy nie szuka się wycieku płomieniem. Wykrycie nieszczelności oznacza konieczność zabezpieczenia instalacji i usunięcia usterki.\n\n\nPrzykład. Po wymianie zaworu nie wystarcza stwierdzenie, że nie czuć zapachu gazu. Wykonuje się przewidzianą próbę, dokumentuje wynik i dopiero wtedy przekazuje instalację do eksploatacji.\n\n\nPodsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-05",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 5. 5. Stacje redukcyjne i pomiarowe.",
+    "content": "LEKCJA 5. 5. Stacje redukcyjne i pomiarowe.\n\n\nFunkcje. Stacja redukuje i stabilizuje ciśnienie oraz może mierzyć przepływ. Zabezpieczenia mogą obejmować szybkozamykające zawory bezpieczeństwa i urządzenia upustowe dobrane do projektu.\n\n\nObsługa. Monitoruje się ciśnienie przed i za reduktorem, stan filtrów, szczelność i działanie zabezpieczeń. Przy przekroczeniu parametrów postępuje się według instrukcji; nie obchodzi się zaworów bezpieczeństwa.\n\n\nPodsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-06",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 6. 6. Przemysłowe odbiorniki gazu.",
+    "content": "LEKCJA 6. 6. Przemysłowe odbiorniki gazu.\n\n\nPiece, suszarnie, kotły. W instalacjach przemysłowych istotne są blokady powietrza i paliwa, przedmuch komory, kontrola płomienia, temperatura i wentylacja. Zagrożenia obejmują zapłon opóźniony, wybuch mieszaniny, przegrzanie i CO.\n\n\nPrzykład. Po zaniku płomienia automatyka odcina gaz. Operator nie może ominąć blokady i podać paliwa ręcznie. Dalsze uruchomienie odbywa się zgodnie z procedurą po usunięciu przyczyny.\n\n\nPodsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-07",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 7. 7. Detektory i automatyka gazowa.",
+    "content": "LEKCJA 7. 7. Detektory i automatyka gazowa.\n\n\nDetektory. Detektor musi być dobrany do konkretnego gazu, zakresu stężeń i miejsca montażu. Wymaga kontroli i kalibracji zgodnie z dokumentacją. Alarm detektora powinien uruchamiać przewidziane działania, np. sygnalizację, wentylację lub odcięcie gazu.\n\n\nWspółpraca instalacji. Nie każda instalacja może być wentylowana w ten sam sposób; decyzje o wentylacji i urządzeniach elektrycznych uwzględniają zagrożenie wybuchem. Układy automatyki bezpieczeństwa należy testować według procedur.\n\n\nPodsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-08",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 8. 8. Awaria i ulatnianie się gazu.",
+    "content": "LEKCJA 8. 8. Awaria i ulatnianie się gazu.\n\n\nProcedura. Nie używaj otwartego ognia ani przełączników elektrycznych w zagrożonej strefie. Ostrzeż osoby, ewakuuj, jeśli bezpieczne zamknij dopływ gazu, zapewnij przewietrzenie bez tworzenia dodatkowego zagrożenia. Z bezpiecznego miejsca wezwij pogotowie gazowe 992 lub 112.\n\n\nPodejrzenie CO. Przerwij narażenie i wyprowadź osoby na świeże powietrze bez narażania ratowników. Wezwij 112. Nie wchodź do niebezpiecznej atmosfery bez odpowiednich uprawnień i wyposażenia ratowniczego.\n\n\nZagrożenie pożarowe. Nie próbuj samodzielnie gasić płonącego wypływu gazu bez odcięcia paliwa, jeśli mogłoby to doprowadzić do nagromadzenia mieszaniny wybuchowej. Postępuj zgodnie z planem awaryjnym i poleceniami służb.\n\n\nPodsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-09",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 9. 9. Pomiary i dokumentacja.",
+    "content": "LEKCJA 9. 9. Pomiary i dokumentacja.\n\n\nPrzyrządy. Wykorzystuje się manometry, rejestratory, analizatory spalin, detektory gazu i mierniki przepływu. Przyrząd musi mieć odpowiedni zakres, dokładność, stan techniczny i wymagane sprawdzenia metrologiczne.\n\n\nProtokół. Powinien jednoznacznie identyfikować instalację, zakres badania, zastosowaną metodę, warunki i wynik, osobę wykonującą oraz wnioski. Nie wolno dopisywać wyników, których faktycznie nie zmierzono.\n\n\nPodsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-10",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 10. 10. Dozór G3.",
+    "content": "LEKCJA 10. 10. Dozór G3.\n\n\nOrganizacja prac. Dozór zapewnia instrukcje, dobór personelu, właściwe odcięcia, ocenę atmosfery, zabezpieczenie miejsca, kontrolę prac pożarowo niebezpiecznych oraz odbiór. W strefach Ex obowiązują dodatkowe wymagania.\n\n\nSytuacja egzaminacyjna. W hali uruchomił się alarm gazowy. D przerywa pracę, wdraża plan awaryjny, organizuje ewakuację i zabezpieczenie miejsca, powiadamia służby i nie dopuszcza do ponownego uruchomienia bez usunięcia przyczyny oraz wymaganych kontroli.\n\n\nPodsumowanie. Najważniejsze jest rozumienie zasady działania, zagrożeń, zabezpieczeń oraz sposobu potwierdzania bezpieczeństwa.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-11",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 11. Gaz ziemny i LPG: właściwości.",
+    "content": "Gaz ziemny i LPG: właściwości.\n\nJak to działa?\nGaz ziemny zawiera głównie metan i zwykle jest lżejszy od powietrza. LPG, czyli mieszanina propanu i butanu, jest cięższy od powietrza. Od właściwości gazu zależy zachowanie przy wycieku.\n\nZagrożenia i typowe błędy.\nNieprawidłowo umieszczony detektor może nie wykryć zagrożenia odpowiednio wcześnie.\n\nPrzykład z praktyki.\nDobór lokalizacji detektora musi uwzględniać gaz, wentylację, geometrię pomieszczenia i dokumentację producenta.\n\nNa egzamin E.\nE rozpoznaje rodzaj paliwa i procedury obiektu.\n\nNa egzamin D.\nD zapewnia dobór detekcji i okresowe kontrole.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-12",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 12. Spalanie i tlenek węgla.",
+    "content": "Spalanie i tlenek węgla.\n\nJak to działa?\nSpalanie wymaga odpowiedniej ilości powietrza i właściwych warunków pracy palnika. Przy niepełnym spalaniu może powstawać tlenek węgla, gaz silnie toksyczny.\n\nZagrożenia i typowe błędy.\nBrak prawidłowej wentylacji i odprowadzania spalin może zagrozić życiu nawet bez wycieku gazu.\n\nPrzykład z praktyki.\nNiepokojące objawy lub alarm CO wymagają postępowania awaryjnego, opuszczenia strefy zagrożenia i wezwania odpowiednich służb.\n\nNa egzamin E.\nE obserwuje płomień i sygnały automatyki w zakresie instrukcji.\n\nNa egzamin D.\nD nadzoruje przeglądy palników, wentylacji i dróg spalinowych.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-13",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 13. Próby szczelności i ocena instalacji.",
+    "content": "Próby szczelności i ocena instalacji.\n\nJak to działa?\nSzczelność ocenia się metodą przewidzianą dla rodzaju instalacji, jej ciśnienia i etapu prac. Właściwa procedura określa medium próbne, aparaturę, czas oraz kryteria.\n\nZagrożenia i typowe błędy.\nNiedopuszczalne jest zastępowanie procedury przypadkowym podawaniem gazu lub używaniem otwartego płomienia do wykrywania wycieków.\n\nPrzykład z praktyki.\nPo naprawie połączenia nie wolno uruchamiać instalacji bez wymaganych sprawdzeń.\n\nNa egzamin E.\nE wykonuje czynności tylko w granicach kwalifikacji i upoważnień.\n\nNa egzamin D.\nD zatwierdza zakres prób i sprawdza protokół.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-14",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 14. Redukcja i stabilizacja ciśnienia gazu.",
+    "content": "Redukcja i stabilizacja ciśnienia gazu.\n\nJak to działa?\nReduktor obniża ciśnienie do wartości wymaganej przez instalację lub odbiornik. W układach mogą występować urządzenia odcinające, ograniczające i monitorujące.\n\nZagrożenia i typowe błędy.\nUszkodzenie regulacji może doprowadzić do zbyt wysokiego lub niskiego ciśnienia u odbiorcy.\n\nPrzykład z praktyki.\nW razie niestabilnego płomienia analizuje się ciśnienie zasilania i działanie urządzeń regulacyjnych bez samowolnej zmiany nastaw.\n\nNa egzamin E.\nE odczytuje parametry i reaguje na alarmy.\n\nNa egzamin D.\nD nadzoruje nastawy i próby działania zabezpieczeń.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-15",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 15. Zabezpieczenia palników przemysłowych.",
+    "content": "Zabezpieczenia palników przemysłowych.\n\nJak to działa?\nUkład palnikowy kontroluje warunki dopuszczenia paliwa, zapłonu i obecność płomienia. Wymagane funkcje bezpieczeństwa zależą od projektu i właściwych norm.\n\nZagrożenia i typowe błędy.\nNiedozwolone mostkowanie czujnika płomienia może dopuścić do nagromadzenia niespalonego gazu.\n\nPrzykład z praktyki.\nPowtarzający się brak zapłonu wymaga diagnostyki zgodnej z instrukcją, a nie wielokrotnego wymuszania startu.\n\nNa egzamin E.\nE nie obchodzi blokad i dokumentuje zdarzenia.\n\nNa egzamin D.\nD organizuje diagnostykę i potwierdza gotowość przed ponownym rozruchem.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g3-lesson-16",
+    "group": "G3",
+    "type": "lesson",
+    "title": "LEKCJA 16. Wycieki gazu i organizacja reakcji.",
+    "content": "Wycieki gazu i organizacja reakcji.\n\nJak to działa?\nPrzy podejrzeniu wycieku priorytetem jest ochrona ludzi i unikanie źródeł zapłonu. Działania przy zaworach i instalacji muszą być zgodne z planem awaryjnym i nie mogą narażać personelu.\n\nZagrożenia i typowe błędy.\nPrzełączanie urządzeń elektrycznych w zagrożonej strefie może stworzyć źródło zapłonu.\n\nPrzykład z praktyki.\nNależy opuścić zagrożony obszar, ostrzec innych i powiadomić służby z bezpiecznego miejsca.\n\nNa egzamin E.\nE zna drogę ewakuacji, alarmowanie i zasady odcięcia gazu.\n\nNa egzamin D.\nD odpowiada za plan awaryjny, ćwiczenia i analizę przyczyn.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  }
+]

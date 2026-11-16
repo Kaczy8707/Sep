@@ -51,6 +51,7 @@ fun ProgressScreen(container: AppContainer, onOpenQuestion: (String) -> Unit, ou
                 val done = lessons.count { progress[it.id]?.completed == true }
                 val known = questions.count { progress[it.id]?.let { p -> p.knownCount > 0 && !p.markedHard } == true }
                 val hard = questions.count { progress[it.id]?.markedHard == true }
+                val errors = questions.count { pl.septrener.exam.ExamSelection.isError(progress[it.id]) }
                 val due = questions.count { Srs.isDue(progress[it.id], now) }
                 val last = (lessons + questions).mapNotNull { progress[it.id]?.lastReviewedAt }.maxOrNull()
                 Card(Modifier.fillMaxWidth()) {
@@ -58,7 +59,11 @@ fun ProgressScreen(container: AppContainer, onOpenQuestion: (String) -> Unit, ou
                         Text("${g.code} – ${g.shortName}", style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.SemiBold)
                         Text("Lekcje ukończone: $done z ${lessons.size}")
                         LinearProgressIndicator(progress = { done.toFloat() / lessons.size.coerceAtLeast(1) }, modifier = Modifier.fillMaxWidth())
-                        Text("Pytania: umiem $known · trudne $hard · do powtórki dziś $due · razem ${questions.size}")
+                        Text("Pytania: umiem $known · trudne $hard · z błędów $errors · do powtórki dziś $due · razem ${questions.size}")
+                        Text(
+                            "Zakres E: ${questions.count { it.matchesScope(pl.septrener.content.Scope.E) }} · D: ${questions.count { it.matchesScope(pl.septrener.content.Scope.D) }} (propozycja redakcyjna)",
+                            style = MaterialTheme.typography.bodySmall,
+                        )
                         LinearProgressIndicator(progress = { known.toFloat() / questions.size.coerceAtLeast(1) }, modifier = Modifier.fillMaxWidth())
                         Text("Ostatnia nauka: ${last?.let { df.format(Date(it)) } ?: "—"}", style = MaterialTheme.typography.bodySmall)
                     }

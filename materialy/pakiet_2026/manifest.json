@@ -1,0 +1,27 @@
+{
+  "edition": "2026-11-16",
+  "verified": false,
+  "status": "materiały pomocnicze, wymagają audytu eksperckiego",
+  "lessons": {
+    "G1": 27,
+    "G2": 16,
+    "G3": 16
+  },
+  "questions": {
+    "G1": 24,
+    "G2": 46,
+    "G3": 46
+  },
+  "officialSources": [
+    "https://eli.gov.pl/eli/DU/2022/1392/ogl",
+    "https://eli.gov.pl/eli/DU/2019/1830/ogl",
+    "https://isap.sejm.gov.pl/isap.nsf/DocDetails.xsp?id=WDU20210001210"
+  ],
+  "notes": [
+    "G1 01–21 zachowane bez zmian z poprzedniego pakietu",
+    "G2/G3 01–10 zachowane z oryginalnego pakietu",
+    "Brak oryginalnego pliku G1_exam.json w tym rozszerzeniu: nie zastępować istniejących pytań G1",
+    "scope jest metadanymi do ewentualnego wykorzystania; aplikacja może je ignorować",
+    "Brak pełnej weryfikacji norm i przepisów szczegółowych"
+  ]
+}

@@ -52,6 +52,10 @@ class TtsPlayer(
     private var hasFocus = false
     private var noisyRegistered = false
     private var released = false
+    /** Liczba trwających handleSetMediaItems (wczytywanie treści). */
+    private var loadingItems = 0
+    /** „Play” przyszło w trakcie wczytywania playlisty – wykonaj po jej ustawieniu. */
+    private var playAfterLoad = false
     private val wakeLock: PowerManager.WakeLock =
         appContext.getSystemService(PowerManager::class.java)
             .newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "SepTrener:tts").apply { setReferenceCounted(false) }
@@ -128,9 +132,11 @@ class TtsPlayer(
     override fun handleSetPlayWhenReady(playWhenReady: Boolean): ListenableFuture<*> {
         if (playWhenReady) {
             resumeOnFocusGain = false
-            if (requestFocus()) queue.play()
+            if (loadingItems > 0) playAfterLoad = true
+            else if (requestFocus()) queue.play()
         } else {
             resumeOnFocusGain = false
+            playAfterLoad = false
             queue.pause()
         }
         return Futures.immediateVoidFuture()
@@ -148,7 +154,9 @@ class TtsPlayer(
         val ids = mediaItems.map { it.mediaId }
         val requestedIndex = if (startIndex == C.INDEX_UNSET) 0 else startIndex
         val segment = if (startPositionMs == C.TIME_UNSET || startPositionMs < 0) 0 else startPositionMs.toInt()
+        loadingItems++
         return scope.future {
+            try {
             val content = container.content.ensureLoaded()
             val settings = container.loadSettings()
             val timing = settings.examTiming
@@ -158,6 +166,13 @@ class TtsPlayer(
             queue.autoAdvance = tracks.any { it.kind == TrackKind.EXAM_QUESTION } || settings.autoAdvanceLessons
             queue.setPlaylist(tracks, index, segment)
             persist()
+            } finally {
+                loadingItems--
+            }
+            if (loadingItems == 0 && playAfterLoad) {
+                playAfterLoad = false
+                if (requestFocus()) queue.play()
+            }
         }
     }
 

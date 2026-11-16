@@ -53,6 +53,10 @@ data class RawItem(
     val verified: Boolean? = null,
     val scope: String? = null,
     val source: String? = null,
+    /** Lekcja, z której wywodzi się pytanie (opcjonalnie). */
+    val sourceLessonId: String? = null,
+    /** Pytanie sytuacyjne/awaryjne (tryb „Co zrobiłbyś…?”). */
+    val scenario: Boolean? = null,
 )
 
 @Serializable
@@ -79,9 +83,21 @@ data class ContentItem(
     val scope: Scope = Scope.UNKNOWN,
     /** Nazwa paczki/pliku, z której pochodzi pozycja. */
     val origin: String = "",
+    /** Opis źródła z rekordu (pole „source”), jeśli podano. */
+    val source: String? = null,
+    val sourceLessonId: String? = null,
+    /** Pytanie sytuacyjne/awaryjne – z pola „scenario” paczki lub z listy assets/content/scenarios.json. */
+    val isScenario: Boolean = false,
 ) {
     val isLesson get() = type == ItemType.LESSON
     val isQuestion get() = type == ItemType.ORAL_QUESTION
+
+    /** Czy pozycja dotyczy zakresu [filter] (E lub D). Pozycje „E i D” pasują do obu; nieoznaczone – do żadnego. */
+    fun matchesScope(filter: Scope?): Boolean = when (filter) {
+        null, Scope.UNKNOWN -> true
+        Scope.ED -> scope == Scope.ED
+        else -> scope == filter || scope == Scope.ED
+    }
 
     /** Tekst do wyszukiwania pełnotekstowego. */
     val searchableText: String get() = listOf(title, content, question, answer).joinToString("\n")

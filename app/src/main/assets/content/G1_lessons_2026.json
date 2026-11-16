@@ -1,0 +1,50 @@
+[
+  {
+    "id": "g1-lesson-22",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 22. Ocena ryzyka przed pracą.",
+    "content": "Ocena ryzyka przed pracą.\n\nJak to działa?\nRyzyko zależy od energii dostępnej w miejscu pracy, stanu instalacji, środowiska, kompetencji zespołu i możliwości niezamierzonego załączenia. Nie wystarcza samo sprawdzenie napięcia znamionowego.\n\nZagrożenia i typowe błędy.\nSzczególnie niebezpieczne są zasilanie rezerwowe, energia zgromadzona w kondensatorach, łuk elektryczny i błędnie opisane obwody.\n\nPrzykład z praktyki.\nPrzed pracą w rozdzielnicy należy porównać oznaczenia z dokumentacją, ustalić wszystkie źródła zasilania i sprawdzić sposób odłączenia.\n\nNa egzamin E.\nWykonawca stosuje środki przewidziane instrukcją i zgłasza rozbieżności.\n\nNa egzamin D.\nDozór określa granice prac, sposób zabezpieczenia i kryteria przerwania pracy.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g1-lesson-23",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 23. Dobór ochrony i weryfikacja wyłączenia.",
+    "content": "Dobór ochrony i weryfikacja wyłączenia.\n\nJak to działa?\nOchrona przy uszkodzeniu wymaga spójnego doboru przewodów ochronnych, zabezpieczeń i warunków samoczynnego wyłączenia. W układzie TN analizuje się między innymi impedancję pętli zwarcia oraz charakterystykę aparatu.\n\nZagrożenia i typowe błędy.\nBłędna ocena czasu zadziałania lub brak ciągłości PE może pozostawić niebezpieczne napięcie dotykowe.\n\nPrzykład z praktyki.\nPrzy niekorzystnym wyniku pomiaru nie wystarczy wymienić wyłącznika na większy; trzeba zbadać cały tor i warunki ochrony.\n\nNa egzamin E.\nOsoba E wykonuje badania w zakresie kwalifikacji i procedur, a wyniki zapisuje.\n\nNa egzamin D.\nOsoba D ocenia kompletność badań, odstępstwa i decyzję o dopuszczeniu do eksploatacji.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g1-lesson-24",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 24. Instalacje z falownikami i napędami.",
+    "content": "Instalacje z falownikami i napędami.\n\nJak to działa?\nFalownik steruje prędkością silnika przez zmianę częstotliwości i napięcia. Układy napędowe mogą generować prądy upływu, zakłócenia i napięcie resztkowe po odłączeniu zasilania.\n\nZagrożenia i typowe błędy.\nDotknięcie obwodu po wyłączeniu może być niebezpieczne, jeżeli kondensatory nie zostały rozładowane.\n\nPrzykład z praktyki.\nPrzed pracą przy napędzie należy odczytać instrukcję producenta i potwierdzić bezpieczny stan układu właściwą metodą.\n\nNa egzamin E.\nE rozpoznaje sygnalizację napędu i nie omija blokad.\n\nNa egzamin D.\nD zapewnia właściwy dobór aparatury ochronnej, procedur i personelu.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g1-lesson-25",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 25. Zasilanie rezerwowe UPS i agregaty.",
+    "content": "Zasilanie rezerwowe UPS i agregaty.\n\nJak to działa?\nUPS oraz agregat mogą zasilać odbiorniki mimo zaniku napięcia sieciowego. Układ przełączania źródeł powinien ograniczać niedopuszczalne połączenia i przepływy zwrotne.\n\nZagrożenia i typowe błędy.\nPozorne wyłączenie sieci nie oznacza braku napięcia w odbiorze.\n\nPrzykład z praktyki.\nPrzy przeglądzie rozdzielnicy trzeba rozpoznać obwody zasilane z UPS i agregatu oraz potwierdzić ich stan.\n\nNa egzamin E.\nE postępuje według schematu i instrukcji wyłączenia.\n\nNa egzamin D.\nD weryfikuje koordynację źródeł i dokumentację po zmianach.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g1-lesson-26",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 26. Odbiór po naprawie i protokół.",
+    "content": "Odbiór po naprawie i protokół.\n\nJak to działa?\nPrzywrócenie urządzenia do ruchu wymaga oceny stanu technicznego, kompletności osłon, prawidłowego działania zabezpieczeń oraz badań adekwatnych do zakresu ingerencji.\n\nZagrożenia i typowe błędy.\nPomijanie badań po zmianie połączeń może ukryć uszkodzenie ochrony przeciwporażeniowej.\n\nPrzykład z praktyki.\nPo wymianie przewodu ochronnego sprawdza się jego ciągłość oraz inne wymagane warunki przed przekazaniem instalacji.\n\nNa egzamin E.\nE dokumentuje czynności i wyniki.\n\nNa egzamin D.\nD sprawdza zakres odbioru i rozstrzyga, czy obiekt może wrócić do pracy.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g1-lesson-27",
+    "group": "G1",
+    "type": "lesson",
+    "title": "LEKCJA 27. Zdarzenie porażenia i działania ratownicze.",
+    "content": "Zdarzenie porażenia i działania ratownicze.\n\nJak to działa?\nPriorytetem jest bezpieczeństwo ratownika. Poszkodowanego nie dotyka się, gdy pozostaje pod napięciem. Po bezpiecznym przerwaniu narażenia ocenia się przytomność i oddech, wzywa pomoc i wykonuje czynności ratownicze zgodnie z aktualnymi wytycznymi.\n\nZagrożenia i typowe błędy.\nNiewłaściwa próba uwolnienia poszkodowanego może spowodować kolejne porażenie.\n\nPrzykład z praktyki.\nW razie zdarzenia w rozdzielni nie wchodzi się w strefę zagrożenia bez zapewnienia bezpieczeństwa.\n\nNa egzamin E.\nE zna sposób alarmowania i lokalizację urządzeń wyłączających.\n\nNa egzamin D.\nD organizuje zabezpieczenie miejsca i analizę zdarzenia bez narażania ratowników.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  }
+]

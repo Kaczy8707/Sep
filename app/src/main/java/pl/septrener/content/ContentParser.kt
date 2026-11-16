@@ -145,6 +145,7 @@ object ContentParser {
                 ContentItem(
                     id = id, group = group, type = type, title = title.ifEmpty { content.lineSequence().first().take(80) },
                     content = content, verified = raw.verified ?: false, scope = Scope.fromCode(raw.scope), origin = origin,
+                    source = raw.source?.trim()?.takeIf { it.isNotEmpty() },
                 )
             }
             ItemType.ORAL_QUESTION -> {
@@ -156,6 +157,9 @@ object ContentParser {
                     id = id, group = group, type = type, title = title.ifEmpty { question },
                     question = question, answer = answer, pauseSeconds = pause,
                     verified = raw.verified ?: false, scope = Scope.fromCode(raw.scope), origin = origin,
+                    source = raw.source?.trim()?.takeIf { it.isNotEmpty() },
+                    sourceLessonId = raw.sourceLessonId?.trim()?.takeIf { it.isNotEmpty() },
+                    isScenario = raw.scenario == true,
                 )
             }
         }

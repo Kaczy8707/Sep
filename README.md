@@ -11,14 +11,15 @@ Działa w pełni **offline** (aplikacja nie ma uprawnienia `INTERNET`), czyta le
 
 | Obszar | Co jest |
 |---|---|
-| Biblioteka | G1 (21 lekcji), G2 (10), G3 (10); zakładki, ukończenie (ręczne i automatyczne po odsłuchu), filtr, wyszukiwarka pełnotekstowa (bez rozróżniania wielkości liter i polskich znaków) |
+| Biblioteka | G1 (27 lekcji, 56 pytań), G2 (16, 46), G3 (16, 46); zakładki, ukończenie (ręczne i automatyczne po odsłuchu), filtr, wyszukiwarka pełnotekstowa (bez rozróżniania wielkości liter i polskich znaków) |
 | Lektor | `TextToSpeech` z `Locale("pl","PL")`, sprawdzenie polskiego głosu + instrukcja instalacji, wybór silnika i głosu (lista z jakością, offline/online, wskazówką płci jeśli silnik ją podaje), prędkość 0,7–1,4, wysokość głosu, odsłuch próbny |
 | Odtwarzanie w tle | `MediaSessionService` (media3) typu `mediaPlayback`, powiadomienie z play/pauza/następna/poprzednia, ekran blokady, przyciski słuchawek/Bluetooth, fokus audio (pauza przy połączeniu, wznowienie po), pauza po odłączeniu słuchawek, `POST_NOTIFICATIONS` na Android 13+ |
 | Fragmenty | podział tekstu na akapity/zdania, każdy fragment < `getMaxSpeechInputLength()`; pauza i wznowienie **od początku bieżącego fragmentu** (bez śledzenia pojedynczych słów); przewijanie fragmentów; dotknięcie fragmentu = czytaj od niego |
 | Pamięć pozycji | lista, lekcja i fragment w DataStore; postęp lekcji w Room; odtworzenie po ubiciu procesu (także z przycisku Play na słuchawkach) |
-| Egzamin ustny | pytanie → odliczana pauza (domyślnie 8 s, konfigurowalna 3–30 s; opcjonalnie pauzy z paczki) → odpowiedź; przyciski **Odpowiadam**, **Pokaż odpowiedź**, **Umiem**, **Powtórz**; losowanie, filtr G1/G2/G3, tryb „tylko do powtórki” |
+| Egzamin ustny | pytanie → odliczana pauza (domyślnie 8 s, konfigurowalna 3–30 s; opcjonalnie pauzy z paczki) → odpowiedź; przyciski **Odpowiadam**, **Pokaż odpowiedź**, **Umiem**, **Częściowo**, **Powtórz**; losowanie, filtr G1/G2/G3 i **E/D** (propozycja redakcyjna), pule: wszystkie / do powtórki / **z błędów**; tryb **„Co zrobiłbyś w sytuacji awaryjnej?”** |
 | Inne tryby | cichy quiz (bez dźwięku); słuchanie pytań w tle jako playlista |
-| Postępy | Room: umiem/trudne, liczba powtórek, ostatnia data, powtórki interwałowe (system Leitnera: 0/1/3/7/14/30 dni) |
+| Postępy | Room (schemat v2, migracja z v1): umiem/częściowo/trudne, liczba powtórek, historia odpowiedzi, ostatnia data, powtórki interwałowe (system Leitnera: 0/1/3/7/14/30 dni) |
+| Źródła | ekran „Źródła i status weryfikacji”, oznaczenie „Treść pomocnicza”, powiązania pytanie ↔ lekcja |
 | Import | paczki JSON przez Storage Access Framework, walidacja schematu i pól, migracja formatu (tablica v0 → manifest v1); przed importem kopia zapasowa postępów, raport (nowe/zmienione/bez zmian/pominięte), zachowanie zakładek i ocen, przywracanie kopii |
 | Wymowa | symbole, wzory i skróty czytane słownie (Ω → om, ≤ → mniejsze lub równe, √3 → pierwiastek z trzech, RCD → er ce de) – tylko w mowie, tekst na ekranie bez zmian; przełącznik i „Test wymowy” |
 | UI | Material 3, tryb ciemny (i kolory dynamiczne na Android 12+), duże przyciski, etykiety dla TalkBack, polskie teksty |
@@ -98,7 +99,7 @@ startuje zgodnie z ograniczeniami Androida 12/14+. Konwencja wewnętrzna: `posit
 | compileSdk / targetSdk / minSdk | 35 / 35 / 26 (Android 8.0) |
 | Compose BOM | 2024.12.01 (Material 3) |
 | media3-session | 1.5.1 |
-| Room | 2.6.1 |
+| Room | 2.6.1 (schemat bazy v2) |
 | DataStore | 1.1.1 |
 | Navigation Compose | 2.8.5 |
 | Lifecycle | 2.8.7 |
@@ -107,7 +108,7 @@ startuje zgodnie z ograniczeniami Androida 12/14+. Konwencja wewnętrzna: `posit
 
 Lint wskazuje nowsze wersje bibliotek – projekt buduje się na powyższych; aktualizację warto zrobić osobnym krokiem z ponownym uruchomieniem testów.
 
-## Testy (56, wszystkie zielone)
+## Testy (71, wszystkie zielone)
 
 * `ContentParserTest` – parser JSON, walidacja, migracja v0→v1, odrzucanie braków, zgodność G1 z TXT,
 * `TextChunkerTest` – limity długości fragmentów na wszystkich lekcjach, zachowanie treści,
@@ -119,11 +120,13 @@ Lint wskazuje nowsze wersje bibliotek – projekt buduje się na powyższych; ak
 * `OfflineAndImportTest` – brak uprawnienia `INTERNET`, wczytanie assetów, import/usuwanie paczek,
 * `G1ExtensionImportTest` – import rozbudowy G1 na poprzedniej wersji z zachowaniem postępów, kopia i przywracanie,
 * `TtsNormalizerTest` – wymowa jednostek, wzorów i skrótów, pokrycie całej treści, limity fragmentów,
+* `Pakiet2026Test`, `ContentUpdateTest`, `DatabaseMigrationTest`, `ExamSelectionTest` – pakiet 2026, aktualizacja z zachowaniem postępów, migracja bazy, filtry E/D/błędy/scenariusze,
 * `TtsEngineDeviceTest` (androidTest) – prawdziwy syntezator na urządzeniu.
 
 ## Co zostało zweryfikowane, a co nie
 
-* ✅ Czysty build `assembleDebug` i `assembleRelease`, `lintDebug` bez błędów, 56 testów jednostkowych/Robolectric.
+* ✅ Czysty build `assembleDebug` i `assembleRelease`, `lintDebug` bez błędów, 71 testów jednostkowych/Robolectric.
+* Raport pakietu 2026 i pokrycia E/D: `materialy/pakiet_2026/RAPORT_POKRYCIA_E_D.md`.
 * ⚠️ **Nie uruchomiono na fizycznym telefonie ani emulatorze** (środowisko budowania nie ma akceleracji sprzętowej).
   Zachowanie prawdziwego silnika TTS, powiadomienia i ekranu blokady trzeba sprawdzić na urządzeniu –
   pomoże w tym `connectedDebugAndroidTest`.

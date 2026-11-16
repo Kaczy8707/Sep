@@ -27,7 +27,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import pl.septrener.content.Group
+import pl.septrener.content.Scope
 import pl.septrener.exam.ExamConfig
+import pl.septrener.exam.QuestionPool
 import pl.septrener.ui.components.MiniPlayer
 import pl.septrener.ui.components.rememberNotificationGate
 import pl.septrener.ui.screens.ExamSessionScreen
@@ -39,6 +41,7 @@ import pl.septrener.ui.screens.ProgressScreen
 import pl.septrener.ui.screens.QuestionScreen
 import pl.septrener.ui.screens.SearchScreen
 import pl.septrener.ui.screens.SettingsScreen
+import pl.septrener.ui.screens.SourcesScreen
 import pl.septrener.ui.theme.SepTheme
 
 class MainActivity : ComponentActivity() {
@@ -116,34 +119,38 @@ fun SepRoot(container: AppContainer) {
                     container, id, gate, onBack = { nav.popBackStack() },
                     onOpenLesson = { other -> nav.navigate("lesson/$other") { popUpTo("lesson/{id}") { inclusive = true } } },
                     onOpenSettings = openSettings, outerPadding = padding,
+                    onOpenQuestion = { nav.navigate("question/$it") },
                 )
             }
+            composable("sources") { SourcesScreen(container, onBack = { nav.popBackStack() }, outerPadding = padding) }
             composable("search") {
                 SearchScreen(container, onBack = { nav.popBackStack() }, onOpenLesson = { nav.navigate("lesson/$it") }, onOpenQuestion = { nav.navigate("question/$it") }, outerPadding = padding)
             }
             composable("question/{id}") { entry ->
-                QuestionScreen(container, entry.arguments?.getString("id").orEmpty(), gate, onBack = { nav.popBackStack() }, outerPadding = padding)
+                QuestionScreen(container, entry.arguments?.getString("id").orEmpty(), gate, onBack = { nav.popBackStack() }, onOpenLesson = { nav.navigate("lesson/$it") }, outerPadding = padding)
             }
             composable("exam") {
                 ExamSetupScreen(
                     container, gate,
-                    onStart = { c -> nav.navigate("exam/session/${c.group?.code ?: "ALL"}/${c.dueOnly}/${c.shuffle}/${c.oral}") },
+                    onStart = { c -> nav.navigate("exam/session/${c.group?.code ?: "ALL"}/${c.scope?.name ?: "ALL"}/${c.pool.name}/${c.shuffle}/${c.oral}/${c.scenarios}") },
                     onListen = { nav.navigate("nowplaying") },
                     onOpenSettings = openSettings, outerPadding = padding,
                 )
             }
-            composable("exam/session/{group}/{due}/{shuffle}/{oral}") { entry ->
+            composable("exam/session/{group}/{scope}/{pool}/{shuffle}/{oral}/{scenarios}") { entry ->
                 val a = entry.arguments
                 val config = ExamConfig(
                     group = a?.getString("group")?.let { Group.fromCode(it) },
-                    dueOnly = a?.getString("due") == "true",
+                    scope = a?.getString("scope")?.let { n -> Scope.entries.firstOrNull { it.name == n } },
+                    pool = a?.getString("pool")?.let { n -> QuestionPool.entries.firstOrNull { it.name == n } } ?: QuestionPool.ALL,
                     shuffle = a?.getString("shuffle") != "false",
                     oral = a?.getString("oral") != "false",
+                    scenarios = a?.getString("scenarios") == "true",
                 )
                 ExamSessionScreen(container, config, onBack = { nav.popBackStack() }, onOpenSettings = openSettings, outerPadding = padding)
             }
             composable("progress") { ProgressScreen(container, onOpenQuestion = { nav.navigate("question/$it") }, outerPadding = padding) }
-            composable("settings") { SettingsScreen(container, outerPadding = padding) }
+            composable("settings") { SettingsScreen(container, outerPadding = padding, onOpenSources = { nav.navigate("sources") }) }
             composable("nowplaying") {
                 NowPlayingScreen(container, gate, onBack = { nav.popBackStack() }, onOpenLesson = { nav.navigate("lesson/$it") }, outerPadding = padding)
             }

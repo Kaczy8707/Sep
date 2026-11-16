@@ -69,7 +69,7 @@ private const val SAMPLE = "Dzień dobry. To jest odsłuch próbny lektora aplik
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-fun SettingsScreen(container: AppContainer, outerPadding: PaddingValues) {
+fun SettingsScreen(container: AppContainer, outerPadding: PaddingValues, onOpenSources: () -> Unit = {}) {
     val ctx = LocalContext.current
     val settings by container.settings.collectAsStateWithLifecycle()
     val status by container.tts.status.collectAsStateWithLifecycle()
@@ -229,6 +229,7 @@ fun SettingsScreen(container: AppContainer, outerPadding: PaddingValues) {
             content.loadIssues.take(10).forEach { Text("⚠ $it", style = MaterialTheme.typography.bodySmall) }
 
             SectionTitle("O aplikacji")
+            OutlinedButton(onClick = onOpenSources, modifier = Modifier.fillMaxWidth().heightIn(min = 56.dp)) { Text("Źródła i status weryfikacji") }
             Text(DISCLAIMER)
             Text(
                 "Lekcje i pytania pochodzą z wcześniej przygotowanych skryptów szkoleniowych i nie zostały niezależnie zweryfikowane. " +

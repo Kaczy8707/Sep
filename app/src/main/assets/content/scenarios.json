@@ -1,0 +1,12 @@
+{
+  "note": "Redakcyjny wybór pytań sytuacyjnych/awaryjnych dla trybu „Co zrobiłbyś w sytuacji awaryjnej?”. Lista zawiera wyłącznie identyfikatory istniejących pytań – bez nowych treści. Do przeglądu eksperckiego.",
+  "ids": [
+    "g1-question-020",
+    "g1-situation-001", "g1-situation-002", "g1-situation-003", "g1-situation-004", "g1-situation-005",
+    "g1-situation-006", "g1-situation-007", "g1-situation-008", "g1-situation-009", "g1-situation-010",
+    "g1-question-ext-023",
+    "g2-question-018", "g2-question-022", "g2-question-ext-029", "g2-question-ext-041", "g2-question-ext-045",
+    "g3-question-015", "g3-question-016", "g3-question-022", "g3-question-ext-029", "g3-question-ext-037",
+    "g3-question-ext-041", "g3-question-ext-045"
+  ]
+}

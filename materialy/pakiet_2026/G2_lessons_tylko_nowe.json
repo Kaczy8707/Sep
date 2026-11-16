@@ -1,0 +1,50 @@
+[
+  {
+    "id": "g2-lesson-11",
+    "group": "G2",
+    "type": "lesson",
+    "title": "LEKCJA 11. Bilans energii w instalacji cieplnej.",
+    "content": "Bilans energii w instalacji cieplnej.\n\nJak to działa?\nMoc przekazywana przez strumień wody zależy od przepływu masowego, ciepła właściwego i różnicy temperatur. Dla wody w typowych warunkach można stosować przybliżenie mocy jako iloczynu tych wielkości.\n\nZagrożenia i typowe błędy.\nNiewłaściwy przepływ może spowodować przegrzanie wymiennika albo niedogrzanie odbiorców.\n\nPrzykład z praktyki.\nSpadek temperatury przy niezmienionym przepływie wymaga sprawdzenia obciążenia, regulacji i stanu wymiennika.\n\nNa egzamin E.\nE odczytuje parametry i porównuje je z instrukcją.\n\nNa egzamin D.\nD ocenia trendy, bilans i zasadność zmiany nastaw.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g2-lesson-12",
+    "group": "G2",
+    "type": "lesson",
+    "title": "LEKCJA 12. Kotły: poziom wody i zabezpieczenia.",
+    "content": "Kotły: poziom wody i zabezpieczenia.\n\nJak to działa?\nW kotłach istotne są prawidłowe warunki odbioru ciepła, zasilania wodą i działania automatyki zabezpieczającej. Urządzenia zabezpieczające muszą być dobrane do konstrukcji i dokumentacji kotła.\n\nZagrożenia i typowe błędy.\nNiedobór wody, nadciśnienie i awaria regulacji mogą doprowadzić do poważnego uszkodzenia.\n\nPrzykład z praktyki.\nAlarm niskiego poziomu wody wymaga postępowania według instrukcji, a nie automatycznego kasowania alarmu.\n\nNa egzamin E.\nE rozpoznaje stany alarmowe i podejmuje działania zgodnie z procedurą.\n\nNa egzamin D.\nD zapewnia przeglądy zabezpieczeń, instrukcje i uprawnienia obsługi.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g2-lesson-13",
+    "group": "G2",
+    "type": "lesson",
+    "title": "LEKCJA 13. Wymienniki ciepła i ich diagnostyka.",
+    "content": "Wymienniki ciepła i ich diagnostyka.\n\nJak to działa?\nWymiennik przekazuje ciepło między mediami bez ich zamierzonego mieszania. Spadek sprawności może wynikać z zabrudzenia powierzchni, zapowietrzenia lub zmiany przepływu.\n\nZagrożenia i typowe błędy.\nNieszczelność wymiennika może doprowadzić do mieszania mediów albo niekontrolowanej zmiany ciśnienia.\n\nPrzykład z praktyki.\nGdy różnica temperatur jest nietypowa, analizuje się temperatury, przepływy i spadki ciśnienia po obu stronach.\n\nNa egzamin E.\nE prowadzi obserwacje i zgłasza odchylenia.\n\nNa egzamin D.\nD planuje diagnostykę, przegląd i bezpieczne odstawienie.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g2-lesson-14",
+    "group": "G2",
+    "type": "lesson",
+    "title": "LEKCJA 14. Sprężarki i energia sprężonego powietrza.",
+    "content": "Sprężarki i energia sprężonego powietrza.\n\nJak to działa?\nSprężarka podnosi ciśnienie gazu kosztem energii mechanicznej. W instalacji znajdują się elementy ciśnieniowe, zawory bezpieczeństwa, osuszacze i odbiorniki.\n\nZagrożenia i typowe błędy.\nUwolnienie energii ciśnienia, gorące elementy i niekontrolowany rozruch są poważnymi zagrożeniami.\n\nPrzykład z praktyki.\nPrzed rozłączeniem przewodu należy zgodnie z instrukcją odizolować i bezpiecznie rozprężyć odpowiedni odcinek.\n\nNa egzamin E.\nE monitoruje ciśnienie, temperaturę i stan odwadniania.\n\nNa egzamin D.\nD nadzoruje badania urządzeń podlegających właściwym wymaganiom i dokumentację.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g2-lesson-15",
+    "group": "G2",
+    "type": "lesson",
+    "title": "LEKCJA 15. Chłodnictwo i wentylacja przemysłowa.",
+    "content": "Chłodnictwo i wentylacja przemysłowa.\n\nJak to działa?\nUkład chłodniczy przenosi ciepło z niższej do wyższej temperatury dzięki obiegowi czynnika i pracy sprężarki. Wentylacja odpowiada za wymagany przepływ i jakość powietrza.\n\nZagrożenia i typowe błędy.\nRyzyka obejmują wysokie ciśnienie, niską temperaturę, niektóre czynniki palne lub toksyczne i niedostateczną wymianę powietrza.\n\nPrzykład z praktyki.\nW razie alarmu czynnika chłodniczego należy stosować procedurę obiektu i nie podejmować samowolnej ingerencji w obieg.\n\nNa egzamin E.\nE kontroluje parametry oraz zgłasza wycieki.\n\nNa egzamin D.\nD sprawdza kwalifikacje dodatkowe wymagane dla danego czynnika i zakresu prac.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  },
+  {
+    "id": "g2-lesson-16",
+    "group": "G2",
+    "type": "lesson",
+    "title": "LEKCJA 16. Sieci cieplne i kompensacja wydłużeń.",
+    "content": "Sieci cieplne i kompensacja wydłużeń.\n\nJak to działa?\nRurociągi zmieniają długość pod wpływem temperatury. Kompensatory i podpory pozwalają ograniczać naprężenia, a izolacja zmniejsza straty energii.\n\nZagrożenia i typowe błędy.\nNiewłaściwe podparcie i uderzenie hydrauliczne mogą uszkodzić instalację.\n\nPrzykład z praktyki.\nPrzy hałasach po rozruchu należy zbadać odpowietrzenie, przebieg rozgrzewania i działanie armatury.\n\nNa egzamin E.\nE stosuje przewidziane tempo rozruchu.\n\nNa egzamin D.\nD nadzoruje instrukcję uruchomienia, przeglądy podpór i analizę awarii.\n\nSprawdź wiedzę.\nWyjaśnij zasadę działania, zagrożenie, przykład i różnicę odpowiedzialności E oraz D.\n\nWażne.\nTo materiał pomocniczy. Czynności wykonuje się według aktualnych instrukcji, właściwych przepisów i upoważnień.",
+    "verified": false
+  }
+]

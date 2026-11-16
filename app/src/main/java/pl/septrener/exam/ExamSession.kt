@@ -1,5 +1,7 @@
 package pl.septrener.exam
 
+import pl.septrener.data.Grade
+
 import kotlin.random.Random
 
 /**
@@ -17,11 +19,22 @@ class ExamSession(
     val total = queue.size
     var knownCount = 0; private set
     var hardCount = 0; private set
+    var partialCount = 0; private set
     var answered = 0; private set
 
     val current: String? get() = queue.firstOrNull()
     val remaining: Int get() = queue.size
     val finished: Boolean get() = queue.isEmpty()
+
+    /** Ocena trzystopniowa: „częściowo” liczy się osobno i nie wraca w tej sesji. */
+    fun grade(grade: Grade): String? = when (grade) {
+        Grade.KNOWN -> grade(true)
+        Grade.HARD -> grade(false)
+        Grade.PARTIAL -> {
+            if (queue.removeFirstOrNull() != null) { answered++; partialCount++ }
+            current
+        }
+    }
 
     /** Zwraca identyfikator następnego pytania lub null, gdy sesja się skończyła. */
     fun grade(known: Boolean): String? {

@@ -23,10 +23,20 @@ class ProgressRepository(private val dao: ProgressDao, private val clock: () -> 
     suspend fun setLastSegment(item: ContentItem, segment: Int) = update(item) { it.copy(lastSegment = segment) }
     suspend fun lessonFinished(item: ContentItem) =
         update(item) { it.copy(completed = true, lastSegment = 0, repetitions = it.repetitions + 1, lastReviewedAt = clock()) }
-    suspend fun recordAnswer(item: ContentItem, known: Boolean) = update(item) { Srs.grade(it, known, clock()) }
-    suspend fun resetAll() = dao.deleteAll()
+    suspend fun recordAnswer(item: ContentItem, known: Boolean) = recordAnswer(item, if (known) Grade.KNOWN else Grade.HARD, "oral")
+
+    /** Zapisuje ocenę, aktualizuje harmonogram powtórek i dopisuje wpis do historii. */
+    suspend fun recordAnswer(item: ContentItem, grade: Grade, mode: String) {
+        val now = clock()
+        update(item) { Srs.grade(it, grade, now) }
+        dao.insertLog(AnswerLogEntry(itemId = item.id, answeredAt = now, grade = grade.code, mode = mode))
+    }
+
+    suspend fun history(itemId: String, limit: Int = 20) = dao.history(itemId, limit)
+    suspend fun resetAll() = mutex.withLock { dao.deleteAll(); dao.deleteHistory() }
     suspend fun snapshot(): List<ItemProgress> = mutex.withLock { dao.getAll() }
-    suspend fun replaceAll(items: List<ItemProgress>) = mutex.withLock { dao.replaceAll(items) }
+    suspend fun historySnapshot(): List<AnswerLogEntry> = mutex.withLock { dao.allHistory() }
+    suspend fun replaceAll(items: List<ItemProgress>, history: List<AnswerLogEntry>? = null) = mutex.withLock { dao.replaceAll(items, history) }
     /** Po zmianie treści lekcji stary indeks fragmentu może wskazywać inne miejsce – wznowienie od początku. */
     suspend fun resetResumePoint(itemId: String) = mutex.withLock {
         dao.get(itemId)?.let { if (it.lastSegment != 0) dao.upsert(it.copy(lastSegment = 0)) }

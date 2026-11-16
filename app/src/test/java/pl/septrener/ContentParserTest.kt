@@ -20,6 +20,8 @@ class ContentParserTest {
         val expected = mapOf(
             "G1_lessons.json" to 21, "G2_lessons.json" to 10, "G3_lessons.json" to 10,
             "G1_exam.json" to 32, "G2_exam.json" to 22, "G3_exam.json" to 22,
+            "G1_lessons_2026.json" to 6, "G2_lessons_2026.json" to 6, "G3_lessons_2026.json" to 6,
+            "G1_exam_2026.json" to 24, "G2_exam_2026.json" to 24, "G3_exam_2026.json" to 24,
         )
         for ((file, count) in expected) {
             val r = ContentParser.parse(TestFiles.asset(file), file)
